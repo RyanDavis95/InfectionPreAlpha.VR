@@ -14,8 +14,10 @@ class Infection_Core {
         class Functions {
             file="Core\Functions";
             
+            class handleKills {};
             class setupGear {};
             class spawnPlayer {};
+            
         };
         
         class Survivors {
@@ -46,8 +48,9 @@ class Infection_Server {
           
           file="Server";
           
-          class setupEVH {};
           class roundManager {};
+          class setupEVH {};
+          
         };
         
         class Functions {
@@ -64,19 +67,30 @@ class Infection_Server {
             file="Server\RoundManager";
             
             class resetWorld {};
+            class setupStats {};
             class setupTeams {};
             class setupZone {};
             class startRound {};
 
         };
         
+        class ScoreManager {
+            
+            file="Server\ScoreManager";
+            
+            class initScoreVars {};
+            class savePlayerStats {};
+            class updateStat {};  
+                   
+        };
+        
         class TeamManager {
             
             file="Server\TeamManager";
-          
-            class updateTeams {};
+            
             class setTeam {};
+            class updateTeams {};
+            
         };
-    
-    
+       
 };

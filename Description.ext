@@ -1,4 +1,5 @@
 author = "Ryan Davis";
+disabledAI = 1;
 
 #include "Config_Master.hpp"
 
@@ -10,4 +11,8 @@ class CfgFunctions
 class CfgMusic {
     
     #include "Config_Music.hpp"  
+};
+
+class CfgRemoteExec {
+    #include "Config_RemoteExec.hpp"
 };

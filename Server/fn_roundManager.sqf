@@ -20,6 +20,6 @@
         [] call INFS_fnc_startRound;
         diag_log "Round System - Round Started";      
         
-        waitUntil {sleep 10; INF_RoundEnded};      
+        waitUntil {sleep 20; INF_RoundEnded};      
     };
 };

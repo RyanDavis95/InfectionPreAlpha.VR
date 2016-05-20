@@ -8,3 +8,5 @@ if (isServer) then {
 };
 
 INF_ServerStarted = True;
+
+missionNamespace setVariable ["INF_ServerStarted", true, true];

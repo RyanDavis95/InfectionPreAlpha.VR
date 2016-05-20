@@ -1,5 +1,6 @@
 INF_RoundNumber = 0;
-INF_RoundStarted = false;
+INF_RoundEnded = false;
+missionNamespace setVariable ["INF_RoundEnded", INF_RoundEnded,true];
 INF_RoundLocation = "";
 
 INF_CurrentPlayers = [];

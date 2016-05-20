@@ -15,6 +15,10 @@ if (_team == "SURVIVOR") then {
         /* Damage */
     _player addEventHandler["HandleDamage",
     {_this call INF_fnc_HandleSurvDamage}];
+    
+    _player addMPEventHandler["MPKilled",{
+        _this call INF_fnc_HandleKills;       
+    }];
 };
 if (_team == "ZOMBIE") then {
         /* Damage */
@@ -23,6 +27,9 @@ if (_team == "ZOMBIE") then {
     
         /* Killed */
     _player addMPEventHandler["MPKilled",
-    {(_this select 0) removeAllEventHandlers "HandleDamage"; 
-    _this call INF_fnc_removeGlow;}];
+    {
+        (_this select 0) removeAllEventHandlers "HandleDamage"; 
+        _this call INF_fnc_removeGlow;
+        
+    }];
 };
