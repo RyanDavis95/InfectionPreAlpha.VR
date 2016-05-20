@@ -8,6 +8,7 @@ if (_team == "SURVIVOR") then {
     _genPos = [getMarkerPos _zone, getMarkerSize _zone] call INF_fnc_genPos;
     _player setPos _genPos;
     //test
+    //help
 } else {
     
 };
