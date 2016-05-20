@@ -15,6 +15,10 @@ class Infection_Core {
             file="Core\Functions";
             
             class handleKills {};
+            class jump {};
+            class keyDown {};
+            class mouseDown {};
+            class playMusic {};
             class setupGear {};
             class spawnPlayer {};
             

@@ -3,7 +3,7 @@ params["_client","_jip"];
 if (!hasInterface) exitWith {}; //Headless Client
 
 waitUntil { _serverReady = missionNamespace getVariable ["INF_ServerStarted",false];
-    !isNull player && _serverReady };
+    !isNull player && _serverReady && !isNull (findDisplay 46) };
     
 INF_ClientInitialized = false;
 
