@@ -9,7 +9,7 @@ if (_team == "SURVIVOR") then {
     _player setPos _genPos;
 
 } else {
-    
+
     _genPos = _player call INF_fnc_zombieSpawn;
     
     if (!isNil "_genPos") then {

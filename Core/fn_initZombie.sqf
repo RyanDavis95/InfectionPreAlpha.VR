@@ -1,5 +1,6 @@
 params ["_player"];
 
+
 [_player,"ZOMBIE"] call INFS_fnc_setTeam;
 
 removeAllWeapons _player;

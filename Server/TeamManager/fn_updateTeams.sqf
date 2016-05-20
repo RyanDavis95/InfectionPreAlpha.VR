@@ -1,5 +1,3 @@
-params ["_player"];
-
 INF_CurrentPlayers = [] call BIS_fnc_listPlayers;
 INF_Survivors = [];
 INF_Zombies = [];

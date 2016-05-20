@@ -3,6 +3,7 @@ params["_client","_jip"];
 
 if (!hasInterface) exitWith {}; //Headless Client
 
+waitUntil { !isNull player; };
 INF_ClientInitialized = false;
 
 "SETUP" cutText ["Setting Up Client...","BLACK OUT",0,false];
@@ -11,6 +12,7 @@ INF_ClientInitialized = false;
 
 
 if (_jip) then {
+    player globalChat format ["JIP - %1",name player];
     _client call INF_fnc_initZombie;
 };
 

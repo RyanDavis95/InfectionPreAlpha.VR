@@ -7,7 +7,7 @@ _genPos = [];
 _targets = missionNamespace getVariable "INF_Survivors";
 _target = _targets call BIS_fnc_SelectRandom;
 
-if (isNil "_target") exitWith {hint "No Survivors!"};
+if (isNil "_target") exitWith {player globalChat "No Survivors to spawn on"};
 
 
 while {!_found} do {
