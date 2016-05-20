@@ -3,7 +3,7 @@ diag_log "Infection Server - Setting up Game Vars";
 diag_log "Infection Server - Game Vars Initialized";
 
 diag_log "Infection Server - Setup Event Handlers";
-[] call INFS_fnc_setupEVH;
+//[] call INFS_fnc_setupEVH;
 diag_log "Infection Server - Event Handlers Initialized";
 
 diag_log "Infection Server - Initializing Round System";

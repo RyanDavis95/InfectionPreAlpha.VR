@@ -13,13 +13,13 @@
         diag_log "Round System - Players Assigned";
         
         diag_log "Round System - Setting up Zone";
-        _zone = [] call INFS_fnc_setupZone;       
+        [] call INFS_fnc_setupZone;       
         diag_log "Round System - Zone Ready";
         
         diag_log "Round System - Starting Round";
         [] call INFS_fnc_startRound;
         diag_log "Round System - Round Started";      
         
-        waitUntil { INF_RoundEnded; };      
+        waitUntil {sleep 10; INF_RoundEnded};      
     };
 };

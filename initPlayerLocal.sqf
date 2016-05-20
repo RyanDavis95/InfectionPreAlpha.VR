@@ -1,6 +1,6 @@
 params["_client","_jip"];
 
-hint format ["%1\%2",_client,_jip];
+
 if (!hasInterface) exitWith {}; //Headless Client
 
 INF_ClientInitialized = false;

@@ -23,6 +23,7 @@ class Infection_Core {
             
             class HandleSurvDamage {};
             class survConfig {};
+            class zoneSpawn {};
         };
         
         class Zombies {
@@ -31,7 +32,8 @@ class Infection_Core {
             class bloodEffects {};
             class glowEffects {};
             class HandleZomDamage {};
-            class removeGlow {};            
+            class removeGlow {};
+            class zombieSpawn {};       
             class zomConfig {};
         };
 };

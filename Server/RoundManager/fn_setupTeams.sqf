@@ -1,11 +1,11 @@
 private ["_alpha"];
 
-waitUntil { sleep 1; hint "Waiting for more players";
+waitUntil { sleep 1; player globalChat "Waiting for more players..";
         INF_CurrentPlayers = [] call BIS_fnc_listPlayers;
-        count INF_CurrentPlayers > 1 
+        count INF_CurrentPlayers > 0 
     };
     
-hint "Starting Match";
+player globalChat "Starting Match";
 
 _alpha = INF_CurrentPlayers call BIS_fnc_SelectRandom;
 

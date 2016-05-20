@@ -1,4 +1,13 @@
+author = "Ryan Davis";
+
 class CfgFunctions
 {    
     #include "Config_Functions.hpp"
 };
+
+class CfgMusic {
+    
+    #include "Config_Music.hpp"  
+};
+
+#include "Config_Master.hpp"

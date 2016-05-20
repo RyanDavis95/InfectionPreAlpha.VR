@@ -15,3 +15,6 @@ INF_Zombies = [];
     };
      
 } forEach INF_CurrentPlayers;
+
+missionNamespace setVariable ["INF_Survivors",INF_Survivors,true];
+missionNamespace setVariable ["INF_Zombies",INF_Zombies,true];

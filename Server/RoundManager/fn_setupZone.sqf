@@ -1,6 +1,6 @@
 /*
     Starting Locations must be named
-    as 'startingPosition_'
+    as 'startingLocation_'
 */
 private["_markers","_zoneArr","_zone"];
 
@@ -9,7 +9,7 @@ _zoneArr = [];
 {   
     _a = toArray _x;
     _a resize 17;
-    if (toString _a == "startingPosition_") then {
+    if (toString _a == "startingLocation_") then {
         _zoneArr pushBack _x;
     };
 } forEach _markers;
@@ -18,4 +18,7 @@ _zone = _zoneArr call BIS_fnc_selectRandom;
 
 missionNamespace setVariable ["INF_Zone",_zone,true];
 
-_zone
+{
+    _x call INF_fnc_spawnPlayer;
+    
+} forEach INF_CurrentPlayers;
