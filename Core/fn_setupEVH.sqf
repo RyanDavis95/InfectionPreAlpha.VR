@@ -30,6 +30,6 @@ if (_team == "ZOMBIE") then {
     {
         (_this select 0) removeAllEventHandlers "HandleDamage"; 
         _this call INF_fnc_removeGlow;
-        
+        _this call INF_fnc_HandleKills;      
     }];
 };

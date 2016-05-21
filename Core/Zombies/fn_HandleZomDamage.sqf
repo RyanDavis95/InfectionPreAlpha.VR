@@ -42,11 +42,11 @@ switch (_selectionName) do {
 
 
 // Keep blood effects present
-_unit setHit ["chest", 0.4];
-_unit setHit ["hands", 0.4];
-_unit setHit ["body", 0.4];
-_unit setHit ["legs", 0.4];
-_unit setHit ["head", 0.4];
+// _unit setHit ["chest", 0.4];
+// _unit setHit ["hands", 0.4];
+// _unit setHit ["body", 0.4];
+// _unit setHit ["legs", 0.4];
+// _unit setHit ["head", 0.4];
 
 /* Override Default damage by returning 0*/
 0

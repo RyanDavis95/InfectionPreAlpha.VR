@@ -6,10 +6,6 @@ diag_log "Infection Server - Setup Event Handlers";
 [] call INFS_fnc_setupEVH;
 diag_log "Infection Server - Event Handlers Initialized";
 
-diag_log "Infection Server - Setup Stat System";
-[] call INFS_fnc_setupStats;
-diag_log "Infection Server - Stats Initialized";
-
 diag_log "Infection Server - Initializing Round System";
 [] spawn INFS_fnc_roundManager;
 diag_log "Infection Server - Round System Initialized";

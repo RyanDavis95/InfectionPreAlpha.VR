@@ -1,9 +1,11 @@
 class Commands
 {
-        mode = 1;
+        mode = 2;
+        jip = 1;
 
         //class setFuel {allowedTargets = 2;};           //execute only on server
-        //class hint {jip = 0;};                         
+        class hint {allowedTargets = 0;};
+        class setObjectTexture {allowedTargets = 0;}                      
 };
 class Functions
 {
@@ -14,4 +16,6 @@ class Functions
         class BIS_fnc_call {allowedTargets = 0;};
         class INF_fnc_spawnPlayer {allowedTargets = 1;};
         class INFS_fnc_setTeam {allowedTargets = 2;};
+        class INF_fnc_initZombie {allowedTargets = 2;}
+        class INF_fnc_initSurvivor {allowedTargets = 2;}
 };

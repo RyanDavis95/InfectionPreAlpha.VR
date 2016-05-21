@@ -13,4 +13,5 @@ addMusicEventHandler ["MusicStop",{[] call INF_fnc_playMusic}];
 
 diag_log "Infection Client - Setup Complete";
 diag_log "****************************************";
+
 INF_ClientInitialized = true;

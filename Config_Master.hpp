@@ -11,6 +11,16 @@ class INF_Settings {
     Survivor_Sprint = true;
     Survivor_Heal = true;
     
+    minPlayers = 2;
+    
+    playerStats[] = {
+        "PlayerXP",
+        "PlayerKills",
+        "PlayerDeaths"
+        };
+
+    
+    
     ranks[] = {
         {"Private"},
         {"Corporal"},
@@ -50,6 +60,6 @@ class INF_Settings {
       {,},
       {,},
       {,},
-      {,}  
+      {,}
     };
 };

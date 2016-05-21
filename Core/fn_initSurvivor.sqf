@@ -1,6 +1,6 @@
 params ["_player"];
 
-[_player,"SURVIVOR"] call INF_fnc_setTeam;
+[_player,"SURVIVOR"] call INFS_fnc_setTeam;
 
 /* Setup Event Handlers */
 _player call INF_fnc_setupEVH;
