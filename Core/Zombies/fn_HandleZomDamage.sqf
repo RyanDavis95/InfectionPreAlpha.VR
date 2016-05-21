@@ -7,48 +7,21 @@ _source = _this param [3, objNull];
 _projectile = _this param [4, ""];
 _hitPart = _this param [5, 0];
 _tmpDmg = 0;
-_alpha = missionNamespace getVariable "INF_AlphaZombie";
-    _faceModifier = 0;
-    _neckModifier = 0;
-    _headModifier = 0;
-    _pelvisModifier = 0;
-    _abdomenModifier = 0;
-    _diaphragmModifier = 0;
-    _chestModifier = 0;
-    _bodyModifier = 0;
-    _armsModifier = 0;
-    _handsModifier = 0;
-    _legsModifier = 0;
-    _overallModifier = 0;
 
 // Modifiers for different hit locations
-if (vehicleVarName _unit == _alpha) then {
-    _faceModifier = 0;
-    _neckModifier = 0;
-    _headModifier = 0.025;
-    _pelvisModifier = 0;
-    _abdomenModifier = 0;
-    _diaphragmModifier = 0;
-    _chestModifier = 0;
-    _bodyModifier = 0;
-    _armsModifier = 0;
-    _handsModifier = 0;
-    _legsModifier = 0;
-    _overallModifier = 0;
-} else {
-    _faceModifier = 0;
-    _neckModifier = 0;
-    _headModifier = 0.05;
-    _pelvisModifier = 0;
-    _abdomenModifier = 0;
-    _diaphragmModifier = 0;
-    _chestModifier = 0;
-    _bodyModifier = 0;
-    _armsModifier = 0;
-    _handsModifier = 0;
-    _legsModifier = 0;
-    _overallModifier = 0;
-};
+_faceModifier = 0;
+_neckModifier = 0;
+_headModifier = 0.05;
+_pelvisModifier = 0;
+_abdomenModifier = 0;
+_diaphragmModifier = 0;
+_chestModifier = 0;
+_bodyModifier = 0;
+_armsModifier = 0;
+_handsModifier = 0;
+_legsModifier = 0;
+_overallModifier = 0;
+
 
 /* Handle Individual hit box components */
 switch (_selectionName) do {

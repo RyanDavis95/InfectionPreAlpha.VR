@@ -16,7 +16,8 @@ while {!_found} do {
     
     //Set Pos Above Objects
     _tmpPos = getPos _player;
-    _player setPos [_genPos select 0, _genPos select 1, 250];
+    _player setPos [_genPos select 0, _genPos select 1, 500];
+
     _height = (getPosATL _player select 2) - (getPos _player select 2); 
     _player setVelocity [0,0,0]; 
     _player setPos _tmpPos;
@@ -27,6 +28,6 @@ while {!_found} do {
     };   
 };
 
-// Return Generated Position
 
+// Return Generated Position
 _genPos

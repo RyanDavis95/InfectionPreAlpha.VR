@@ -1,12 +1,9 @@
 params ["_player"];
 
-[_player,"SURVIVOR"] call INFS_fnc_setTeam;
-
-removeAllWeapons _player;
+[_player,"SURVIVOR"] call INF_fnc_setTeam;
 
 /* Setup Event Handlers */
 _player call INF_fnc_setupEVH;
-
 _player call INF_fnc_setupGear;
 
 /* Abilities */

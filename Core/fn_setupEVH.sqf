@@ -9,7 +9,7 @@ _player removeAllEventHandlers "HandleDamage";
     
 /* Respawn */
 _player addMPEventHandler["MPRespawn",{
-    _this call INF_fnc_initZombie}]; 
+    _this call INF_fnc_initZombie; _this call INF_fnc_spawnPlayer}]; 
 
 if (_team == "SURVIVOR") then {
         /* Damage */

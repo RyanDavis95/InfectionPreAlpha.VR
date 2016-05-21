@@ -22,15 +22,3 @@ class ambience3
     name = "ambience3";
     sound[] = {"\resources\music\ambience3.ogg", db+0, 1.0};
 };
-
-class pumpedUpKicks
-{
-    name = "pumpedUpKicks";
-    sound[] = {"\resources\music\pumpedUpKicks.ogg", db+0, 1.0};
-};
-
-class EDMTrend
-{
-    name = "EDMTrend";
-    sound[] = {"\resources\music\EDMTrend.ogg", db+0, 1.0};  
-};

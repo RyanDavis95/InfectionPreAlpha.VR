@@ -21,7 +21,7 @@ class Infection_Core {
             class playMusic {};
             class setupGear {};
             class spawnPlayer {};
-            
+            class setTeam {};
         };
         
         class Survivors {
@@ -63,7 +63,7 @@ class Infection_Server {
            class connectedPlayer {};
            class disconnectedPlayer {};
            class unitKilled {};  
-            
+           class updateTeams {};
         };
         
         class RoundManager {
@@ -86,15 +86,6 @@ class Infection_Server {
             class savePlayerStats {};
             class updateStat {};  
                    
-        };
-        
-        class TeamManager {
-            
-            file="Server\TeamManager";
-            
-            class setTeam {};
-            class updateTeams {};
-            
         };
        
 };

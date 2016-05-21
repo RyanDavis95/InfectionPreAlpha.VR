@@ -2,7 +2,7 @@ private ["_alpha"];
 
 waitUntil { sleep 1; player globalChat "Waiting for more players..";
         INF_CurrentPlayers = [] call BIS_fnc_listPlayers;
-        count INF_CurrentPlayers > 0 
+        count INF_CurrentPlayers > 1 
     };
     
 player globalChat "Starting Match";
@@ -28,3 +28,5 @@ _alpha = INF_CurrentPlayers call BIS_fnc_SelectRandom;
     };
    
 } forEach INF_CurrentPlayers;
+
+[] call INFS_fnc_updateTeams;

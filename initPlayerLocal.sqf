@@ -1,6 +1,6 @@
 params["_client","_jip"];
 
-if (!hasInterface) exitWith {}; //Headless Client
+//if (!hasInterface) exitWith {}; //Headless Client
 
 waitUntil { _serverReady = missionNamespace getVariable ["INF_ServerStarted",false];
     !isNull player && _serverReady && !isNull (findDisplay 46) };
@@ -11,11 +11,12 @@ INF_ClientInitialized = false;
 
 [] call compile preProcessFileLineNumbers "Core\init.sqf";
 
-_ended = missionNamespace getVariable "INF_RoundEnded";
-if (_jip && !_ended) then {
+
+if (_jip) then {
     _client globalChat format ["JIP - %1",name player];
-    _client call INF_fnc_initZombie;
 };
+
+_client call INF_fnc_spawnPlayer;
 
 waitUntil { INF_ClientInitialized; };
 "SETUP" cutText ["Setup Complete","BLACK IN",2,false]; 

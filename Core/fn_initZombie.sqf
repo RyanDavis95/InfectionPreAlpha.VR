@@ -1,9 +1,7 @@
 params ["_player"];
 
 
-[_player,"ZOMBIE"] call INFS_fnc_setTeam;
-
-removeAllWeapons _player;
+[_player,"ZOMBIE"] call INF_fnc_setTeam;
 
 _player call INF_fnc_zomConfig;
 

@@ -1,6 +1,6 @@
 params ["_unit"];
 
-_teams = [] call INF_fnc_updateTeams;
+_teams = [] call INFS_fnc_updateTeams;
 
 _survivors = _teams select 0;
 _zombies = _teams select 0;

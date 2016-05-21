@@ -24,7 +24,7 @@ if (_team == "ZOMBIE") then {
         
         switch (playerSide) do {
                 case west: { _player addUniform "U_B_CombatUniform_mcam_tshirt";};
-                case east: { _player addUniform "	U_O_CombatUniform_ocamo";};
+                case east: { _player addUniform "U_O_CombatUniform_ocamo";};
                 case independent: { _player addUniform "U_BG_Guerilla1_1";};
                 case civilian: { };
                 default { };

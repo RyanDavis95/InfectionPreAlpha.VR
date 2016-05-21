@@ -19,6 +19,9 @@ _zone = _zoneArr call BIS_fnc_selectRandom;
 missionNamespace setVariable ["INF_Zone",_zone,true];
 
 {
-    _x call INF_fnc_spawnPlayer;
-    
-} forEach INF_CurrentPlayers;
+    _x remoteExec ["INF_fnc_spawnPlayer",_x,false];  
+} forEach INF_Survivors;
+
+{
+    _x remoteExec ["INF_fnc_spawnPlayer",_x,false];   
+} forEach INF_Zombies;
