@@ -59,8 +59,10 @@ class Infection_Server {
         class Functions {
            file="Server\Functions";
            
+           class addJIP {};
            class connectedPlayer {};
            class disconnectedPlayer {};
+           class pickAlpha {};
            class unitKilled {};  
            class updateTeams {};
            class setTeam {};

@@ -1,6 +1,8 @@
+params ["_client"];
+
 diag_log "****************************************";
 diag_log "Infection Client - Setting Up Client";
-[] call compile PreprocessFileLineNumbers "core\configuration.sqf";
+_client call compile PreprocessFileLineNumbers "core\configuration.sqf";
 
 
 (findDisplay 46) displayAddEventHandler ["KeyDown", {_this call INF_fnc_keyDown;}];
@@ -14,4 +16,4 @@ addMusicEventHandler ["MusicStop",{[] call INF_fnc_playMusic}];
 diag_log "Infection Client - Setup Complete";
 diag_log "****************************************";
 
-INF_ClientInitialized = true;
+_client setVariable ["INF_ClientReady",true,true];

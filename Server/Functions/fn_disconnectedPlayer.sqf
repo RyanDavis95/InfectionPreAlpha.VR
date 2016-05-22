@@ -1,3 +1,3 @@
 params ["_unit","_id","_uid","_name"];
 
-// Not Implemented
+_unit setDammage 1;

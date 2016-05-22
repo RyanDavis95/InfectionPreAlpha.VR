@@ -2,6 +2,8 @@
 INF_RoundNumber = 0;
 INF_RoundLocation = "";
 INF_GameInProgress = false;
+INF_initJIP = false;
+INF_PickingZom = false;
 
 /* Lists Of Players */
 INF_CurrentPlayers = [];

@@ -11,7 +11,7 @@ _tmpDmg = 0;
 // Modifiers for different hit locations
 _faceModifier = 0;
 _neckModifier = 0;
-_headModifier = 0.05;
+_headModifier = 0.1;
 _pelvisModifier = 0;
 _abdomenModifier = 0;
 _diaphragmModifier = 0;
@@ -20,7 +20,7 @@ _bodyModifier = 0;
 _armsModifier = 0;
 _handsModifier = 0;
 _legsModifier = 0;
-_overallModifier = 0;
+_overallModifier = .05;
 
 
 /* Handle Individual hit box components */
@@ -42,11 +42,11 @@ switch (_selectionName) do {
 
 
 // Keep blood effects present
-// _unit setHit ["chest", 0.4];
-// _unit setHit ["hands", 0.4];
-// _unit setHit ["body", 0.4];
-// _unit setHit ["legs", 0.4];
-// _unit setHit ["head", 0.4];
+_unit setHit ["chest", 0.4];
+_unit setHit ["hands", 0.4];
+_unit setHit ["body", 0.4];
+_unit setHit ["legs", 0.4];
+_unit setHit ["head", 0.4];
 
 /* Override Default damage by returning 0*/
 0

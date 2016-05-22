@@ -2,15 +2,21 @@ _minPlayers = getNumber (missionConfigFile >> "INF_Settings" >> "minPlayers");
 
 waitUntil {
             INF_CurrentPlayers = [] call BIS_fnc_listPlayers;
-            
-            if(count INF_CurrentPlayers >= _minPlayers) then {
-                player globalChat "Starting Match";
-                missionNamespace setVariable ["INF_RoundReady",true,true];
-                sleep .1;
+            _ready = true;
+            if(count INF_CurrentPlayers >= _minPlayers) then {           
+                // {
+                //     if !(_x getVariable ["INF_ClientReady",false]) then {
+                //         _ready = false;
+                //         "Initializing Players..." remoteExec ["Hint",0,false];
+                //     };
+                // } forEach INF_CurrentPlayers;
+                
+                if (count INF_CurrentPlayers >= _minPlayers && _ready) exitWith {
+                    "Starting Match" remoteExec ["Hint",0,false]; true
+                };
             } else {
-                player globalChat "Waiting for more players..";
-                sleep 10;
+                "Waiting for more players..." remoteExec ["Hint",0,false];
+                sleep 2;
             };
-            missionNamespace setVariable ["INF_RoundReady",false,true];
-            count INF_CurrentPlayers >= _minPlayers
         };
+        

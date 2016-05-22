@@ -4,7 +4,10 @@ params ["_player"];
 
 /* Setup Event Handlers */
 _player call INF_fnc_setupEVH;
+
+/* Appearance */
 _player call INF_fnc_setupGear;
+_player call INF_fnc_BloodEffects;
 
 /* Abilities */
 //_unit setVariable ["INF_SpeedBoosts",2,false];
