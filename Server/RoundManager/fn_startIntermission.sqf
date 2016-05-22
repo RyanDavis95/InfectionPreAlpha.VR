@@ -1,5 +1,6 @@
 {
-    _x call INFS_fnc_savePlayerStats;
+    _handle = _x spawn INFS_fnc_savePlayerStats;
+    waitUntil { scriptDone _handle; };
     
 } forEach INF_CurrentPlayers;
 
