@@ -16,5 +16,3 @@ if (_jip) then {
 
 waitUntil { _client getVariable ["INF_ClientReady",false]; };
 "SETUP" cutText ["Setup Complete","BLACK IN",2,false]; 
-
-//waitUntil {missionNamespace getVariable "INF_RoundReady"};

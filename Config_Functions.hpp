@@ -51,7 +51,7 @@ class Infection_Dialog {
           
           class drawIcon;
           class fadeColor;
-            
+          class handleIcons;          
         };
 };
 

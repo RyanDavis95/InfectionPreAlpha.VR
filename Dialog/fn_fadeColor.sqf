@@ -12,34 +12,34 @@ _r = (_colorTo select 0) - (_colorFrom select 0);
 _g = (_colorTo select 1) - (_colorFrom select 1);
 _b = (_colorTo select 2) - (_colorFrom select 2);
 
-_changeR = 0;
-_changeG = 0;
-_changeB = 0;
+_changeR = _colorFrom select 0;
+_changeG = _colorFrom select 1;
+_changeB = _colorFrom select 2;
 
 if (_r > 0) then {
-    _changeR = (_colorFrom select 0) + .001; 
+    _changeR = (_colorFrom select 0) + .01; 
 } else {
     if (_r < 0) then {
-        _changeR = (_colorFrom select 0) - .001; 
+        _changeR = (_colorFrom select 0) - .01; 
     };   
 };
 
 if (_g > 0) then {
-    _changeG = (_colorFrom select 1) + .001;
-   
+    _changeG = (_colorFrom select 1) + .01;
 } else {
     if (_g < 0) then {
-        _changeG = (_colorFrom select 1) - .001;
+        _changeG = (_colorFrom select 1) - .01;
     };   
 };
     
 if (_b > 0) then {
-    _changeB = (_colorFrom select 2) + .001; 
+    _changeB = (_colorFrom select 2) + .01; 
 } else {
     if (_b < 0) then {
-        _changeB = (_colorFrom select 2) - .001; 
+        _changeB = (_colorFrom select 2) - .01; 
     };   
 };
         
-//hint format ["%1\n%2\n%3",_changeR,_changeG,_changeB];
+//Diag_log format ["%1\n%2\n%3",_changeR,_changeG,_changeB];
+
 [_changeR,_changeG,_changeB]
