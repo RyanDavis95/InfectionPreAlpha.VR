@@ -41,6 +41,18 @@ class Infection_Core {
             class zombieSpawn {};       
             class zomConfig {};
         };
+        
+};
+
+class Infection_Dialog {
+    tag="INFD";
+        class Dialog {
+          file="Dialog";
+          
+          class drawIcon;
+          class fadeColor;
+            
+        };
 };
 
 class Infection_Server {
