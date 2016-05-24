@@ -6,7 +6,7 @@
 
 _time = serverTime + 30;
 
-waitUntil { sleep .25; 
+waitUntil { sleep .2; 
 
     ("Restart in: "+ str round (_time - serverTime)) remoteExecCall ["hint",0,false];
     

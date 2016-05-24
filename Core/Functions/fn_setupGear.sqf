@@ -9,7 +9,7 @@ removeBackpack _player;
 removeUniform _player;
 removeAllWeapons _player;
 removeAllAssignedItems _player;
-_texture = "";
+
 if (_team == "ZOMBIE") then {
         
         switch (playerSide) do {

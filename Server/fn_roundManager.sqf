@@ -2,7 +2,11 @@
     while {true} do {
         INF_RoundNumber = INF_RoundNumber + 1;
         diag_log format ["----Starting Round %1----",INF_RoundNumber];  
-             
+        
+        diag_log "Round System - Intermission Started";
+        [] call INFS_fnc_startIntermission;
+        diag_log "Round System - Intermission Ended";
+        
         diag_log "Round System - Cleaning Up World";
         [] call INFS_fnc_resetWorld;
         diag_log "Round System - World Reset";
@@ -28,10 +32,9 @@
         [] call INFS_fnc_startRound;
         diag_log "Round System - Round Started";      
         diag_log "----------------------------";
+        
+                /* Start New Round */
         waitUntil {sleep 1; !INF_GameInProgress};
         
-        diag_log "Round System - Intermission Started";
-        [] call INFS_fnc_startIntermission;
-        diag_log "Round System - Intermission Ended";
     };
 };

@@ -4,6 +4,7 @@ INF_RoundLocation = "";
 INF_GameInProgress = false;
 INF_initJIP = false;
 INF_PickingZom = false;
+INF_SpawnedStructures = [];
 
 /* Lists Of Players */
 INF_CurrentPlayers = [];
@@ -13,5 +14,5 @@ INF_Survivors = [];
 /* Mission Variables */
 missionNamespace setVariable ["INF_RoundReady",false,true];
 
-/* Not Implemented */
-INF_SpawnedStructures = [];
+/* Backend Vars */
+INF_ServerStarted = False;

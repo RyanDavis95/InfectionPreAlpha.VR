@@ -1,6 +1,6 @@
 /*
     Starting Locations must be named
-    as 'startingLocation_'
+    as 'startingLocation_x' x is anything
 */
 private["_markers","_zoneArr","_zone"];
 
@@ -20,8 +20,4 @@ missionNamespace setVariable ["INF_Zone",_zone,true];
 
 {
     _x remoteExec ["INF_fnc_spawnPlayer",_x,false];  
-} forEach INF_Survivors;
-
-{
-    _x remoteExec ["INF_fnc_spawnPlayer",_x,false];   
-} forEach INF_Zombies;
+} forEach INF_CurrentPlayers;

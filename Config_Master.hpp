@@ -18,7 +18,13 @@ class INF_Settings {
         "PlayerKills",
         "PlayerDeaths"
         };
-
+    
+    /* Droppable Items */
+    itemDrops[] = {
+        "Land_Ammobox_rounds_F",
+        "",
+        ""    
+    };
     
     
     ranks[] = {

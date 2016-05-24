@@ -13,14 +13,15 @@ class Infection_Core {
         
         class Functions {
             file="Core\Functions";
-            
-            class handleKills {};
+
+            class bloodEffects {};           
             class jump {};
             class keyDown {};
             class mouseDown {};
             class playMusic {};
             class setupGear {};
             class spawnPlayer {};
+            class updateStats {};
         };
         
         class Survivors {
@@ -34,7 +35,6 @@ class Infection_Core {
         class Zombies {
             file="Core\Zombies";
             
-            class bloodEffects {};
             class glowEffects {};
             class HandleZomDamage {};
             class removeGlow {};
@@ -78,6 +78,14 @@ class Infection_Server {
            class unitKilled {};  
            class updateTeams {};
            class setTeam {};
+        };
+        
+        class Items {
+            file="Server\Items";
+            
+            class dropItem {};
+            class itemPickup {};  
+            
         };
         
         class RoundManager {
