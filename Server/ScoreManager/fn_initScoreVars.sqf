@@ -1,7 +1,5 @@
-params ["_player"];
-
-INF_ScoreVars = getArray (missionConfigFile >> "INF_Settings" >> "playerStats");
+params ["_client"];
 
 {
-    _player setVariable [_x,0,true];
-} forEach INF_ScoreVars;
+    _client setVariable [_x,0,true];
+} forEach INFS_ScoreVars;

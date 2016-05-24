@@ -1,10 +1,10 @@
-params ["_player"];
+params ["_client"];
 private ["_value","_cVal"];
 
 {
     INF_Stat = _x;
-    INF_Val = _player getVariable _x;
-    INF_Player = _player;
+    INF_Val = _client getVariable _x;
+    INF_Player = _client;
     
     {
         _val = profileNamespace getVariable [INF_Stat,0];
@@ -12,9 +12,9 @@ private ["_value","_cVal"];
         INF_Player globalChat format ["%1",profileNamespace getVariable [INF_Stat,0]];
     } remoteExec ["BIS_fnc_call",INF_Player,false];
     
-    _player setVariable [_x,0];
+    _client setVariable [_x,0];
     
-} forEach INF_ScoreVars;
+} forEach INFS_ScoreVars;
 
 INF_Stat = "";
 INF_Val = 0;

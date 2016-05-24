@@ -12,7 +12,7 @@ if (_team == "SURVIVOR") then {
     ];
     
     _grave setDir (getDir _unit);
-    INF_SpawnedStructures pushBack _grave;
+    INFS_SpawnedStructures pushBack _grave;
 };
 
 if (_team == "ZOMBIE") then {

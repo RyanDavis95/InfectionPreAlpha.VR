@@ -1,20 +1,18 @@
-private ["_minPlayers"];
-
-_minPlayers = getNumber (missionConfigFile >> "INF_Settings" >> "minPlayers");
-INF_GameInProgress = true;
+INFS_GameInProgress = true;
 diag_log "Round Status - Started";
 
-_minPlayers spawn {
+[] spawn {
     waitUntil {
-        if (!INF_initJIP) then {
-          [] call INFS_fnc_updateTeams;
-        };
-        if (INF_Zombies isEqualTo [] && INF_GameInProgress && !INF_PickingZom) then {
+        
+        if (INFS_JIPQueue isEqualTo [] && INFS_Zombies isEqualTo [] && INFS_GameInProgress 
+        && !INFS_PickingZom) then {
+            
+            [] call INFS_fnc_updateTeams;
             _handle = [] spawn INFS_fnc_pickAlpha;
             waitUntil { scriptDone _handle; };
         };
         sleep 1; 
-        (count INF_Survivors == 0 || count INF_CurrentPlayers < _this)
+        (count INFS_Survivors == 0 || count INFS_CurrentPlayers < INF_minPlayers)
     }; 
 
   INF_GameInProgress = false;

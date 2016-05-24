@@ -1,3 +1,3 @@
-params ["_player","_team"];
+params ["_client","_team"];
 
-_player setVariable ["INF_Team",_team,true];
+_client setVariable ["INF_Team",_team,true];

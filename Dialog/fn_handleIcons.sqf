@@ -1,21 +1,24 @@
 params ["_client"];
 
-_baseColor = [0,1,1];//Put in Master config..
 _opacity = _client getVariable ["INF_iconOpacity",1];
 
 
 if (_x getVariable "INF_playerDead") then {
     _texture = root + "resources\Images\dead_CA.paa";
-    [_client,"INF_playerDead",[1,0,0],[1,0,0],_opacity,_texture] call INFD_fnc_drawIcon;
+    _color = INF_KilledIconColor;
+    [_client,"INF_playerDead",_color,_color,_opacity,_texture] call INFD_fnc_drawIcon;
 } else
 {
     _texture = root + "resources\Images\testTriangle_CA.paa";
     if (_x getVariable "INF_hitUnit") then {
-        [_client,"INF_hitUnit",[0,1,1],[1,1,0],_opacity,_texture] call INFD_fnc_drawIcon;
+        _color = INF_EngagedIconColor;
+        _defaultColor = INF_DefaultIconColor;
+        [_client,"INF_hitUnit",_defaultColor,_color,_opacity,_texture] call INFD_fnc_drawIcon;
     } else
     {
         if (_x getVariable "INF_playerFired") then {
-            [_client,"INF_playerFired",[0,1,1],[0,1,1],_opacity,_texture] call INFD_fnc_drawIcon;
+            _color = INF_DefaultIconColor;
+            [_client,"INF_playerFired",_color,_color,_opacity,_texture] call INFD_fnc_drawIcon;
         };
     };
 };

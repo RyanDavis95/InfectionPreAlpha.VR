@@ -1,4 +1,3 @@
 {
     _x call INFS_fnc_initScoreVars;
-     
-} forEach INF_CurrentPlayers;
+} forEach INFS_CurrentPlayers;

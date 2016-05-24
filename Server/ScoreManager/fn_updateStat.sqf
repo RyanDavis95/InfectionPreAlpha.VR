@@ -1,3 +1,4 @@
-params ["_player","_stat","_value"];
+params ["_client","_stat","_value"];
 
-_player setVariable [_stat,_value,true];
+_oldVal = _client getVariable [_stat,0];
+_client setVariable [_stat,_value + _oldVal,true];

@@ -1,13 +1,15 @@
-params ["_player"];
+params ["_client"];
 
-[_player,"SURVIVOR"] call INFS_fnc_setTeam;
+[_client,"SURVIVOR"] call INFS_fnc_setTeam;
 
 /* Setup Event Handlers */
-_player call INF_fnc_setupEVH;
+_client call INF_fnc_setupEVH;
 
 /* Appearance */
-_player call INF_fnc_setupGear;
-_player call INF_fnc_BloodEffects;
+_client call INF_fnc_setupGear;
+_client call INF_fnc_BloodEffects;
+
+_client setAnimSpeedCoef (getNumber (missionConfigFile >> "INF_Settings" >> "Survivor_Speed"));
 
 /* Abilities */
 //_unit setVariable ["INF_SpeedBoosts",2,false];

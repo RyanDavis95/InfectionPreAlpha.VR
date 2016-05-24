@@ -1,4 +1,4 @@
-params ["_player","_pos","_maxDist"];
+params ["_client","_pos","_maxDist"];
 private ["_dist","_found","_dir"];
 
 _found = false;
@@ -15,19 +15,18 @@ while {!_found} do {
     
     
     //Set Pos Above Objects
-    _tmpPos = getPos _player;
-    _player setPos [_genPos select 0, _genPos select 1, 500];
+    _tmpPos = getPos _client;
+    _client setPos [_genPos select 0, _genPos select 1, 500];
 
-    _height = (getPosATL _player select 2) - (getPos _player select 2); 
-    _player setVelocity [0,0,0]; 
-    _player setPos _tmpPos;
+    _height = (getPosATL _client select 2) - (getPos _client select 2); 
+    _client setVelocity [0,0,0]; 
+    _client setPos _tmpPos;
     _genPos set [2,_height];
 
     if (!surfaceIsWater _genPos) then {
         _found = true;
     };   
 };
-
 
 // Return Generated Position
 _genPos

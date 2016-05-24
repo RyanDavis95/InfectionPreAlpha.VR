@@ -22,14 +22,15 @@ class Infection_Core {
             class setupGear {};
             class spawnPlayer {};
             class updateStats {};
+            class zoneSpawn {};
+            
         };
         
         class Survivors {
             file="Core\Survivors";  
             
             class HandleSurvDamage {};
-            class survConfig {};
-            class zoneSpawn {};
+            
         };
         
         class Zombies {
@@ -38,8 +39,7 @@ class Infection_Core {
             class glowEffects {};
             class HandleZomDamage {};
             class removeGlow {};
-            class zombieSpawn {};       
-            class zomConfig {};
+            class zombieAttack {};
         };
         
 };
@@ -71,13 +71,13 @@ class Infection_Server {
         class Functions {
            file="Server\Functions";
            
-           class addJIP {};
            class connectedPlayer {};
            class disconnectedPlayer {};
            class pickAlpha {};
+           class setTeam {};
            class unitKilled {};  
            class updateTeams {};
-           class setTeam {};
+           
         };
         
         class Items {
@@ -110,6 +110,5 @@ class Infection_Server {
             class savePlayerStats {};
             class updateStat {};  
                    
-        };
-       
+        };      
 };

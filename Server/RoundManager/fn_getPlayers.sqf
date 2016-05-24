@@ -1,8 +1,6 @@
-_minPlayers = getNumber (missionConfigFile >> "INF_Settings" >> "minPlayers");
-
 waitUntil { _start = false;
-    INF_CurrentPlayers = [] call BIS_fnc_listPlayers;
-    if(count INF_CurrentPlayers >= _minPlayers) then {           
+    INFS_CurrentPlayers = [] call BIS_fnc_listPlayers;
+    if(count INFS_CurrentPlayers >= INFS_minPlayers) then {           
         "Starting Match" remoteExec ["Hint",0,false];
         _start = true;
     } else {

@@ -20,4 +20,4 @@ missionNamespace setVariable ["INF_Zone",_zone,true];
 
 {
     _x remoteExec ["INF_fnc_spawnPlayer",_x,false];  
-} forEach INF_CurrentPlayers;
+} forEach INFS_CurrentPlayers;

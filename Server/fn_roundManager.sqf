@@ -1,7 +1,7 @@
 [] spawn {
     while {true} do {
-        INF_RoundNumber = INF_RoundNumber + 1;
-        diag_log format ["----Starting Round %1----",INF_RoundNumber];  
+        INFS_RoundNumber = INFS_RoundNumber + 1;
+        diag_log format ["----Starting Round %1----",INFS_RoundNumber];  
         
         diag_log "Round System - Intermission Started";
         [] call INFS_fnc_startIntermission;
@@ -34,7 +34,6 @@
         diag_log "----------------------------";
         
                 /* Start New Round */
-        waitUntil {sleep 1; !INF_GameInProgress};
-        
+        waitUntil {sleep 1; !INFS_GameInProgress};       
     };
 };

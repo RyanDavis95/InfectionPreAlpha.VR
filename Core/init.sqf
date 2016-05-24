@@ -6,7 +6,7 @@ _client call compile PreprocessFileLineNumbers "core\configuration.sqf";
 
 
 (findDisplay 46) displayAddEventHandler ["KeyDown", {_this call INF_fnc_keyDown;}];
-//(findDisplay 46) displayAddEventHandler ["KeyUp", {_this call INF_fnc_keyUpHandler;}];
+(findDisplay 46) displayAddEventHandler ["KeyUp", {_this call INF_fnc_keyUpHandler;}];
 (findDisplay 46) displayAddEventHandler ["MouseButtonDown", {_this call INF_fnc_mouseDown; true;}];
 
 

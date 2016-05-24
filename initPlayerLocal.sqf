@@ -1,6 +1,6 @@
 params["_client","_jip"];
 
-//if (!hasInterface) exitWith {}; //Headless Client
+if (!hasInterface) exitWith {}; //Headless Client
 
 waitUntil { (missionNamespace getVariable ["INF_ServerStarted",false])
             && !isNull player && !isNull (findDisplay 46) };

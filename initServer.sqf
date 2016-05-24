@@ -7,6 +7,6 @@ if (isServer) then {
     diag_log "****************************************";
 };
 
-INF_ServerStarted = True;
+INFS_ServerStarted = True;
 
-missionNamespace setVariable ["INF_ServerStarted", INF_ServerStarted, true];
+missionNamespace setVariable ["INF_ServerStarted", INFS_ServerStarted, true];

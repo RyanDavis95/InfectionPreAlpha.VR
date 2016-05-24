@@ -10,7 +10,14 @@ class INF_Settings {
     Survivor_Mines = true;
     Survivor_Sprint = true;
     Survivor_Heal = true;
+    Survivor_Speed = 1;
     
+    DefaultIconColor[] = {0,1,1};
+    EngagedIconColor[] = {1,1,0};
+    KilledIconColor[] = {1,0,0};
+    
+    /* Zombies */
+    Zombie_Speed = 1.2;
     minPlayers = 2;
     
     playerStats[] = {

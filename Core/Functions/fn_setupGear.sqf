@@ -1,21 +1,21 @@
-params ["_player"];
+params ["_client"];
 
-_team = _player getVariable "INF_Team";
+_team = _client getVariable "INF_Team";
 
-removeHeadgear _player;
-removeGoggles _player;
-removeVest _player;
-removeBackpack _player;
-removeUniform _player;
-removeAllWeapons _player;
-removeAllAssignedItems _player;
+removeHeadgear _client;
+removeGoggles _client;
+removeVest _client;
+removeBackpack _client;
+removeUniform _client;
+removeAllWeapons _client;
+removeAllAssignedItems _client;
 
 if (_team == "ZOMBIE") then {
         
         switch (playerSide) do {
-                case west: {_player adduniform "U_B_GhillieSuit";};
-                case east: { _player addUniform "U_O_GhillieSuit";};
-                case independent: { _player addUniform "U_I_GhillieSuit";};
+                case west: {_client adduniform "U_B_GhillieSuit";};
+                case east: { _client addUniform "U_O_GhillieSuit";};
+                case independent: { _client addUniform "U_I_GhillieSuit";};
                 case civilian: { };
                 default { };
         };         
@@ -23,9 +23,9 @@ if (_team == "ZOMBIE") then {
 } else {
         
         switch (playerSide) do {
-                case west: { _player adduniform "U_B_CombatUniform_mcam_tshirt";};
-                case east: { _player addUniform "U_O_CombatUniform_ocamo";};
-                case independent: { _player addUniform "U_BG_Guerilla1_1";};
+                case west: { _client adduniform "U_B_CombatUniform_mcam_tshirt";};
+                case east: { _client addUniform "U_O_CombatUniform_ocamo";};
+                case independent: { _client addUniform "U_BG_Guerilla1_1";};
                 case civilian: { };
                 default { };
         };     
