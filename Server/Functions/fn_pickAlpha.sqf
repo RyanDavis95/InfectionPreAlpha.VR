@@ -1,4 +1,11 @@
-_alpha = INF_CurrentPlayers call BIS_fnc_SelectRandom;
+_found = false;
+_alpha = objNull;
+while {!_found} do {
+    _alpha = INF_CurrentPlayers call BIS_fnc_SelectRandom;
+    if (_alpha getVariable ["INF_ClientReady",false]) then {
+        _found = true;
+    };
+};
 _alpha spawn {
     INF_PickingZom = true;
     format ["Picking new Zombie"] remoteExec ["Hint",0,false];
