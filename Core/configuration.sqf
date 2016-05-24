@@ -26,3 +26,5 @@ _player setVariable ["INF_armsDmg",0,false];
 _player setVariable ["INF_handsDmg",0,false];
 _player setVariable ["INF_legsDmg",0,false];
 _player setVariable ["INF_overallDmg",0,false];
+
+// test
