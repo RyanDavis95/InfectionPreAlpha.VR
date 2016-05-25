@@ -25,14 +25,21 @@ _dispTime = serverTime - (_client getVariable "INF_IconStartTime");
         true // Draw screen edge arrows
     ];
     
-    serverTime - _initTime;
+    
     /* Opacity Control */
-    if (_opacity > .6) then {
-        _client setVariable ["INF_iconOpacity",_opacity - .0001]; 
-    } else {
+    
+    
+    if (_dispTime < 3) then {
+        _client setVariable ["INF_iconOpacity",1/_dispTime]; 
+    };
+    
+    if (_dispTime >= 3 && _dispTime < 8) {
         _client setVariable ["INF_iconOpacity",_opacity - .002]; 
     };
 
+    if (_dispTime >= 8) then {
+        
+    };
     /* Color Change Control */   
     if (_opacity < .85) then {
         _fade = [_colorTo,_colorFrom] call INFD_fnc_fadeColor;
