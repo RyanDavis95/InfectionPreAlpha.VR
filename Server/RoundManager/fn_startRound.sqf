@@ -13,7 +13,7 @@ diag_log "Round Status - Started";
         sleep 1;
         (count INFS_Survivors == 0 || count INFS_CurrentPlayers < INFS_minPlayers)
     };
-  INF_GameInProgress = False;
+  INFS_GameInProgress = False;
   missionNamespace setVariable ["INF_GameInProgress",false,true];
   
   diag_log "Round Status - Ended";

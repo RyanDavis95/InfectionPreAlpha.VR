@@ -10,11 +10,15 @@ _client removeAllEventHandlers "HandleDamage";
 /* Respawn */
 _client addMPEventHandler["MPRespawn",{
     if !(missionNamespace getVariable "INF_GameInProgress") then {
-        (_this select 0) call INF_fnc_initSurvivor;   
+        (_this select 0) call INF_fnc_initSurvivor;
+        (_this select 0) call INF_fnc_spawnPlayer;
     } else {
-        (_this select 0) call INF_fnc_initZombie;  
-    };  
-    _this call INF_fnc_spawnPlayer;   
+        if ((_this select 0) getVariable "INF_Team" == "ZOMBIE") then {
+            (_this select 0) call INF_fnc_spawnPlayer; 
+        };
+        (_this select 0) call INF_fnc_initZombie;
+    };
+      
 }]; 
 
 _client addEventhandler ["Hit",{
@@ -35,10 +39,9 @@ if (_team == "SURVIVOR") then {
     
     /* killed */
     _client addMPEventHandler["MPKilled",{
-        _this call INF_fnc_HandleKills;
+        _this call INF_fnc_updateStats;
         (_this select 0) setVariable ["INF_playerDead",true,true];
         (_this select 0) setVariable ["INF_iconOpacity", 1, true];
-        
     }];
 };
 if (_team == "ZOMBIE") then {
@@ -50,7 +53,7 @@ if (_team == "ZOMBIE") then {
     _client addMPEventHandler["MPKilled",{
         (_this select 0) removeAllEventHandlers "HandleDamage"; 
         _this call INF_fnc_removeGlow;
-        _this call INF_fnc_HandleKills;
+        _this call INF_fnc_updateStats;
         (_this select 0) setVariable ["INF_playerDead",true,true];
         (_this select 0) setVariable ["INF_iconOpacity", 1, true];
         
@@ -59,5 +62,12 @@ if (_team == "ZOMBIE") then {
 
 /* Draw Player Icons */
 Everything = allDeadMen + allUnits;
-addMissionEventHandler ["Draw3D",{ { _x call INFD_fnc_handleIcons; } forEach Everything;}];
+
+addMissionEventHandler ["Draw3D",{
+    _update = 5;
+    INF_FrameCount = (INF_FrameCount + 1) % _update;
+    if (INF_FrameCount % _update == 0) then {
+        { _x call INFD_fnc_handleIcons; } forEach Everything;
+    };   
+}];
   

@@ -2,19 +2,19 @@ params ["_client"];
 private ["_value","_cVal"];
 
 {
-    INF_Stat = _x;
-    INF_Val = _client getVariable _x;
-    INF_Player = _client;
-    
-    {
-        _val = profileNamespace getVariable [INF_Stat,0];
-        profileNamespace setVariable [INF_Stat, INF_Val + _val];
-        INF_Player globalChat format ["%1",profileNamespace getVariable [INF_Stat,0]];
-    } remoteExec ["BIS_fnc_call",INF_Player,false];
-    
+    _newVal = _client getVariable _x;
+    [[_client,_x,_newVal],{
+        private ["_client","_stat","_newVal","_curVal"];
+        _client = _this select 0;
+        _stat = _this select 1;
+        _newVal = _this select 2;
+        
+        _curVal = profileNamespace getVariable [_stat,0];
+        profileNamespace setVariable [_stat, _newVal + _curVal];      
+    }] remoteExecCall ["BIS_fnc_call",_client,false];
+       
     _client setVariable [_x,0];
     
 } forEach INFS_ScoreVars;
 
-INF_Stat = "";
-INF_Val = 0;
+{saveProfileNamespace;} remoteExec ["BIS_fnc_call",_client,false];

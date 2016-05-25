@@ -1,7 +1,5 @@
-INFS_CurrentPlayers = [] call BIS_fnc_listPlayers;
-{
-        INFS_CurrentPlayers pushBack _x;
-} forEach [bob,joe,kenzie];
+INFS_CurrentPlayers = playableUnits;//[] call BIS_fnc_listPlayers;
+
 INFS_Survivors = [];
 INFS_Zombies = [];
 INFS_Unassigned = []; // Debug Var

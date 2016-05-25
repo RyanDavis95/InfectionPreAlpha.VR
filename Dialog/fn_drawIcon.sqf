@@ -1,4 +1,4 @@
-params ["_client","_iconType","_colorTo","_colorFrom","_opacity","_texture"];
+params ["_client","_iconType","_colorTo","_colorFrom","_opacity","_texture","_initTime"];
 
 if (player distance _client < 100 ) then { //&& _client != player
     
@@ -6,7 +6,10 @@ _bbr = boundingBoxReal vehicle _client;
 _p1 = _bbr select 0;
 _p2 = _bbr select 1;
 _maxHeight = abs ((_p2 select 2) - (_p1 select 2));
-       
+
+// Timing
+_dispTime = serverTime - (_client getVariable "INF_IconStartTime");
+
     drawIcon3D [
         _texture, //Texture
         [_colorFrom select 0, _colorFrom select 1, _colorFrom select 2, _opacity], //Color
@@ -16,12 +19,13 @@ _maxHeight = abs ((_p2 select 2) - (_p1 select 2));
         0, //Texture Angle
         name _client, //Icon Text
         2, // Nothing = 0, Shadow = 1, Outline = 2
-        0.025, // text size
+        0.04, // text size
         "PuristaBold", // Text Font
         "CENTER", // Text Align
         true // Draw screen edge arrows
     ];
-        
+    
+    serverTime - _initTime;
     /* Opacity Control */
     if (_opacity > .6) then {
         _client setVariable ["INF_iconOpacity",_opacity - .0001]; 

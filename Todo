@@ -1,9 +1,8 @@
-Implement new item drop system
 
-Loadout Screen *
+Implement Stats system
 
-Implement Stats system 
-
+make Icons time based, not opacity based
+ 
 ReConfigure zombie attack
 
-Fix Bug when respawning as zombie -> spawn back as surv?? wtf
+Loadout Screen *

@@ -1,5 +1,5 @@
 {
-    _x call INFS_fnc_savePlayerStats;  
+    _x spawn INFS_fnc_savePlayerStats;
 } forEach INFS_CurrentPlayers;
 
 _time = serverTime + INFS_IntermissionTime;

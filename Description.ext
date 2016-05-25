@@ -1,7 +1,7 @@
 __EXEC (MISSION_ROOT = __FILE__ select [0, count __FILE__ - 15])
 
 author = "Ryan Davis";
-disabledAI = 1;
+disabledAI = 0;
 
 #include "Config_Master.hpp"
 

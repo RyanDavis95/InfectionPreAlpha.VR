@@ -1,9 +1,5 @@
 waitUntil { _start = false;
-    INFS_CurrentPlayers = [] call BIS_fnc_listPlayers;
-    
-    {
-        INFS_CurrentPlayers pushBack _x;
-    } forEach [bob,joe,kenzie];
+    INFS_CurrentPlayers = playableUnits;//[] call BIS_fnc_listPlayers;
     
     if(count INFS_CurrentPlayers >= INFS_minPlayers) then {           
         "Starting Match" remoteExec ["Hint",0,false];

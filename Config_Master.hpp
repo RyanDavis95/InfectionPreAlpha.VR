@@ -19,12 +19,12 @@ class INF_Settings {
     
     /* Zombies */
     Zombie_Speed = 1.2;
-    minPlayers = 2;
+    minPlayers = 1;
     
     playerStats[] = {
-        "PlayerXP",
-        "PlayerKills",
-        "PlayerDeaths"
+        "INF_PlayerXP",
+        "INF_PlayerKills",
+        "INF_PlayerDeaths"
         };
     
     /* Droppable Items */
