@@ -84,6 +84,10 @@ class Infection_Server {
             file="Server\Items";
             
             class dropItem {};
+            class giveAmmo {};
+            class giveEndurance {};
+            class giveHealth {};
+            class giveMine {};
             class itemPickup {};  
             
         };

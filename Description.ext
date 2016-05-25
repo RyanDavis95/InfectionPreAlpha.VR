@@ -18,3 +18,9 @@ class CfgMusic {
 class CfgRemoteExec {
     #include "Config_RemoteExec.hpp"
 };
+
+class CfgRscTitles {
+    #include "Dialog\Config_RscTitles.hpp"     
+};
+
+#include "Dialog\Config_MasterDialog.hpp"
