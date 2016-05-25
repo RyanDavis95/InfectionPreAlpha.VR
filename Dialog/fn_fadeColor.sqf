@@ -39,7 +39,5 @@ if (_b > 0) then {
         _changeB = (_colorFrom select 2) - .01; 
     };   
 };
-        
-//Diag_log format ["%1\n%2\n%3",_changeR,_changeG,_changeB];
 
 [_changeR,_changeG,_changeB]

@@ -1,17 +1,22 @@
 INFS_CurrentPlayers = [] call BIS_fnc_listPlayers;
+{
+        INFS_CurrentPlayers pushBack _x;
+} forEach [bob,joe,kenzie];
 INFS_Survivors = [];
 INFS_Zombies = [];
 INFS_Unassigned = []; // Debug Var
 
 
 {
+    if (alive _x) then {
+        
+        _team = _x getVariable ["INF_Team","UNASSIGNED"];
 
-    _team = _x getVariable ["INF_Team","UNASSIGNED"];
-
-    switch (_team) do {
-        case "SURVIVOR": {INFS_Survivors pushBack _x;};
-        case "ZOMBIE": {INFS_Zombies pushBack _x;};
-        default { INFS_Unassigned pushBack _x}; // Debug Purposes
+        switch (_team) do {
+            case "SURVIVOR": {INFS_Survivors pushBack _x;};
+            case "ZOMBIE": {INFS_Zombies pushBack _x;};
+            default { INFS_Unassigned pushBack _x}; // Debug Purposes
+        };       
     };
 } forEach INFS_CurrentPlayers;
 

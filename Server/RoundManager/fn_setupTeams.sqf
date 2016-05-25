@@ -4,5 +4,3 @@
 } forEach INFS_CurrentPlayers;
 
 [] call INFS_fnc_updateTeams;
-
-[] call INFS_fnc_pickAlpha;

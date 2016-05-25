@@ -1,7 +1,6 @@
-// need to specify Texture somehoe?
 params ["_client","_iconType","_colorTo","_colorFrom","_opacity","_texture"];
 
-if (player distance _client < 100 && _client != player) then {
+if (player distance _client < 100 ) then { //&& _client != player
     
 _bbr = boundingBoxReal vehicle _client;
 _p1 = _bbr select 0;
@@ -24,8 +23,8 @@ _maxHeight = abs ((_p2 select 2) - (_p1 select 2));
     ];
         
     /* Opacity Control */
-    if (_opacity > .7) then {
-        _client setVariable ["INF_iconOpacity",_opacity - .001]; 
+    if (_opacity > .6) then {
+        _client setVariable ["INF_iconOpacity",_opacity - .0001]; 
     } else {
         _client setVariable ["INF_iconOpacity",_opacity - .002]; 
     };

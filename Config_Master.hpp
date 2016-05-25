@@ -5,6 +5,7 @@ class INF_Settings {
     
     /* Damage Settings */
     Headshots_Only = false;
+    IntermissionTime = 10;
     
     /* Enabled Abilities */
     Survivor_Mines = true;
@@ -29,8 +30,9 @@ class INF_Settings {
     /* Droppable Items */
     itemDrops[] = {
         "Land_Ammobox_rounds_F",
-        "",
-        ""    
+        "Weapon_srifle_dmr_01_F",
+        "DemoCharge_F",
+        "Item_MediKit"  
     };
     
     

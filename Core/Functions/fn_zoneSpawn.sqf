@@ -4,6 +4,8 @@ private ["_dist","_found","_dir"];
 _found = false;
 _genPos = [];
 
+if (missionNamespace getVariable ["INF_Zone",""] == "") exitWith {getPos _client};
+
 while {!_found} do {
     _dir = random 360;
     _x = cos (_dir);

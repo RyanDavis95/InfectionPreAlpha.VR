@@ -20,13 +20,13 @@
         [] call INFS_fnc_setupStats;
         diag_log "Infection Server - Stats Initialized";
         
-        diag_log "Round System - Assigning Players";
-        [] call INFS_fnc_setupTeams;
-        diag_log "Round System - Players Assigned";
-        
         diag_log "Round System - Setting up Zone";
         [] call INFS_fnc_setupZone;       
         diag_log "Round System - Zone Ready";
+        
+        diag_log "Round System - Assigning Players";
+        [] call INFS_fnc_setupTeams;
+        diag_log "Round System - Players Assigned";
         
         diag_log "Round System - Starting Round";
         [] call INFS_fnc_startRound;

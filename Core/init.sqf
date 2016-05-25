@@ -13,6 +13,9 @@ _client call compile PreprocessFileLineNumbers "core\configuration.sqf";
 addMusicEventHandler ["MusicStop",{[] call INF_fnc_playMusic}];
 [] call INF_fnc_playMusic;
 
+_client call INF_fnc_setupGear;
+_client call INF_fnc_setupEVH;
+
 diag_log "Infection Client - Setup Complete";
 diag_log "****************************************";
 

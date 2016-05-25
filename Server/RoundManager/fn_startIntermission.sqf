@@ -2,7 +2,7 @@
     _x call INFS_fnc_savePlayerStats;  
 } forEach INFS_CurrentPlayers;
 
-_time = serverTime + 30;
+_time = serverTime + INFS_IntermissionTime;
 
 waitUntil { sleep .2; 
 
