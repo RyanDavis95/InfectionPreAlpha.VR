@@ -1,6 +1,7 @@
 INFS_GameInProgress = True;
 missionNamespace setVariable ["INF_GameInProgress",true,true];
 diag_log "Round Status - Started";
+
 [] spawn {
     
     waitUntil {
@@ -9,7 +10,8 @@ diag_log "Round Status - Started";
         && !INFS_PickingZom) then {                              
             _handle = [] spawn INFS_fnc_pickAlpha;
             waitUntil { scriptDone _handle; };          
-        };
+        };  
+
         sleep 1;
         (count INFS_Survivors == 0 || count INFS_CurrentPlayers < INFS_minPlayers)
     };

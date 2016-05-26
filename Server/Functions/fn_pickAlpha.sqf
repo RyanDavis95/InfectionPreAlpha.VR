@@ -7,11 +7,13 @@ format ["Picking new Zombie"] remoteExec ["Hint",0,false];
 _time = serverTime;
 _newZom = false;
 waitUntil {
-    sleep 1;
+    sleep .1;
     [] call INFS_fnc_updateTeams;
-    if (count INFS_Zombies > 0) then {
-        _newZom = true;
-        (str (INFS_Zombies select 0) + " has volunteered!") remoteExecCall ["hint",0,false];
+    if !(INFS_Zombies isEqualTo []) then {
+        _newZom = true;       
+        {
+            (str _x + " has volunteered!") remoteExecCall ["hint",0,false];
+        } forEach INFS_Zombies;
     };
 (serverTime - _time > 10 || _newZom) 
 };

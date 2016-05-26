@@ -5,6 +5,7 @@ INF_MissionRoot = parsingNamespace getVariable "MISSION_ROOT";
 _client setVariable ["INF_ClientReady",false,true];
 _client setVariable ["INF_zomAttack",false,true];
 _client setVariable ["INF_Team","UNASSIGNED",true];
+_client setVariable ["INF_ItemDropped",false];
 INF_FrameCount = 0;
 INF_IconRefreshRate = getNumber (missionConfigFile >> "INF_Settings" >> "IconRefreshRate");
 

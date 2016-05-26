@@ -5,8 +5,8 @@ class INF_Settings {
     
     /* Damage Settings */
     Headshots_Only = false;
-    IntermissionTime = 10;
-    IconRefreshRate = 15;
+    IntermissionTime = 5;
+    IconRefreshRate = 30;
     
     /* Enabled Abilities */
     Survivor_Mines = true;

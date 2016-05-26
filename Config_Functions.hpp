@@ -28,7 +28,7 @@ class Infection_Core {
         };
         
         class Survivors {
-            file="Core\Survivors";  
+            file="Core\Survivors";
             
             class HandleSurvDamage {};
             
@@ -88,6 +88,7 @@ class Infection_Server {
            class setTeam {};
            class unitKilled {};  
            class updateTeams {};
+           class unitRespawned {};
            
         };
         

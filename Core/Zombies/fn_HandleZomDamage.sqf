@@ -1,45 +1,61 @@
-params["_unit","_selectionName","_damage","_source","_projectile","_hitPart"];
-private["_tmpDmg"];
-_tmpDmg = 0;
+params["_client","_selectionName","_damage","_source","_projectile","_hitPart"];
+private ["_hitName","_val","_mod"];
 
-// Modifiers for different hit locations
-_faceModifier = 0;
-_neckModifier = 0;
-_headModifier = 0.1;
-_pelvisModifier = 0;
-_abdomenModifier = 0;
-_diaphragmModifier = 0;
-_chestModifier = 0;
-_bodyModifier = 0;
-_armsModifier = 0;
-_handsModifier = 0;
-_legsModifier = 0;
-_overallModifier = .05;
+if( _client getVariable "INF_Team" != _source getVariable "INF_Team") then {
 
-/* Handle Individual hit box components */
-switch (_selectionName) do {
-    case "face_hub": {_tmpDmg = (_unit getVariable "INF_faceDmg") + (_damage * _faceModifier); _unit setHitPointDamage ["hitFace", _tmpDmg]; _unit setVariable ["INF_faceDmg", _tmpDmg, false];};
-    case "neck": {_tmpDmg = (_unit getVariable "INF_neckDmg") + (_damage * _neckModifier); _unit setHitPointDamage ["hitNeck", _tmpDmg]; _unit setVariable ["INF_neckDmg", _tmpDmg, false];};
-    case "head": {_tmpDmg = (_unit getVariable "INF_headDmg") + (_damage * _headModifier); _unit setHitPointDamage ["hitHead", _tmpDmg]; _unit setVariable ["INF_headDmg", _tmpDmg, false];}; 
-    case "pelvis": {_tmpDmg = (_unit getVariable "INF_pelvisDmg") + (_damage * _pelvisModifier); _unit setHitPointDamage ["hitPelvis", _tmpDmg]; _unit setVariable ["INF_pelvisDmg", _tmpDmg, false];};
-    case "spine1": {_tmpDmg = (_unit getVariable "INF_abdomenDmg") + (_damage * _abdomenModifier); _unit setHitPointDamage ["hitAbdomen", _tmpDmg]; _unit setVariable ["INF_abdomenDmg", _tmpDmg, false];}; 
-    case "spine2": {_tmpDmg = (_unit getVariable "INF_diaphragmDmg") + (_damage * _diaphragmModifier); _unit setHitPointDamage ["hitDiaphragm", _tmpDmg]; _unit setVariable ["INF_diaphragmDmg", _tmpDmg, false];};
-    case "spine3": {_tmpDmg = (_unit getVariable "INF_chestDmg") + (_damage * _chestModifier); _unit setHitPointDamage ["hitChest", _tmpDmg]; _unit setVariable ["INF_chestDmg", _tmpDmg, false];}; 
-    case "body": {_tmpDmg = (_unit getVariable "INF_bodyDmg") + (_damage * _bodyModifier); _unit setHitPointDamage ["hitBody", _tmpDmg]; _unit setVariable ["INF_bodyDmg", _tmpDmg, false];}; 
-    case "arms": {_tmpDmg = (_unit getVariable "INF_armsDmg") + (_damage * _armsModifier); _unit setHitPointDamage ["hitArms", _tmpDmg]; _unit setVariable ["INF_armsDmg", _tmpDmg, false];}; 
-    case "hands": {_tmpDmg = (_unit getVariable "INF_handsDmg") + (_damage * _handsModifier); _unit setHitPointDamage ["hitHands", _tmpDmg]; _unit setVariable ["INF_handsDmg", _tmpDmg, false];}; 
-    case "legs": {_tmpDmg = (_unit getVariable "INF_legsDmg") + (_damage * _legsModifier); _unit setHitPointDamage ["hitLegs", _tmpDmg]; _unit setVariable ["INF_legsDmg", _tmpDmg, false];};
-    case "": {_tmpDmg = (_unit getVariable "INF_overallDmg") + (_damage * _overallModifier);  _unit setDammage _tmpDmg; _unit setVariable ["INF_overallDmg",_tmpDmg,false];};
-    default {};
+    _hitName = "";
+    _mod = 0;
+    switch (_selectionName) do {
+        case "neck": {
+            _hitName = "hitNeck"; 
+            _mod = .01;
+        };
+        case "head": {
+            _hitName = "hitHead"; 
+            _mod = .03;
+        };
+        case "pelvis": {
+            _hitName = "hitPelvis"; 
+            _mod = .01;
+        };
+        case "spine1": {
+            _hitName = "hitAbdomen"; 
+            _mod = .01;
+        };
+        case "spine2": {
+            _hitName = "hitDiaphragm"; 
+            _mod = .01;
+        };
+        case "spine3": {
+            _hitName = "hitChest"; 
+            _mod = .01;
+        };
+        case "body": {
+            _hitName = "hitBody"; 
+            _mod = .01;
+        };
+        case "hands": {
+            _hitName = "hitHands"; 
+            _mod = .01;
+        };
+        case "legs": {
+            _hitName = "hitLegs"; 
+            _mod = .01;
+        };
+        default {
+            _hitName = ["hitFace","hitArms"] call BIS_fnc_SelectRandom; 
+            _mod = .01;
+        };
+    };
+
+    _val = (_client getVariable ["INF_UnitDmg",0]) + (_damage * _mod);
+    _client setVariable ["INF_UnitDmg", _val, true];
+    _client setDammage _val;
+    _client call INF_fnc_bloodEffects;
+
+    if (_val >= 1) then {
+        _client setVariable ["INF_UnitDmg", 0, true];
+    };
+    
+    //hint str _val;
 };
-hint str _tmpDmg;
-
-// Keep blood effects present
-_unit setHit ["chest", 0.4];
-_unit setHit ["hands", 0.4];
-_unit setHit ["body", 0.4];
-_unit setHit ["legs", 0.4];
-_unit setHit ["head", 0.4];
-
-/* Override Default damage by returning 0*/
-0
