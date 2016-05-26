@@ -14,7 +14,8 @@ class Infection_Core {
         class Functions {
             file="Core\Functions";
 
-            class bloodEffects {};           
+            class bloodEffects {};
+            class getObjHeight {};          
             class jump {};
             class keyDown {};
             class mouseDown {};
@@ -46,12 +47,22 @@ class Infection_Core {
 
 class Infection_Dialog {
     tag="INFD";
-        class Dialog {
-          file="Dialog";
+        class Functions {
+          file="Dialog\Functions";
           
-          class drawIcon;
-          class fadeColor;
-          class handleIcons;          
+          class drawIcon {};
+          class handleIcons {}; 
+          class iconColor {};         
+        };
+        
+        class Icons {
+          file="Dialog\Icons";
+          
+          class deadIcon {};
+          class engagedIcon {};
+          class killIcon {};
+          class movingIcon {};
+             
         };
 };
 

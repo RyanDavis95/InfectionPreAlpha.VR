@@ -1,11 +1,5 @@
 params["_unit","_selectionName","_damage","_source","_projectile","_hitPart"];
 private["_tmpDmg"];
-_unit = _this param [0, objNull];
-_selectionName = _this param [1, ""];
-_damage = _this param [2, 0];
-_source = _this param [3, objNull];
-_projectile = _this param [4, ""];
-_hitPart = _this param [5, 0];
 _tmpDmg = 0;
 
 // Modifiers for different hit locations
@@ -21,7 +15,6 @@ _armsModifier = 0;
 _handsModifier = 0;
 _legsModifier = 0;
 _overallModifier = .05;
-
 
 /* Handle Individual hit box components */
 switch (_selectionName) do {
@@ -39,7 +32,7 @@ switch (_selectionName) do {
     case "": {_tmpDmg = (_unit getVariable "INF_overallDmg") + (_damage * _overallModifier);  _unit setDammage _tmpDmg; _unit setVariable ["INF_overallDmg",_tmpDmg,false];};
     default {};
 };
-
+hint str _tmpDmg;
 
 // Keep blood effects present
 _unit setHit ["chest", 0.4];

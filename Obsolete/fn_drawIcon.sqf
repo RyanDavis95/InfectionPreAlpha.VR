@@ -27,13 +27,13 @@ _dispTime = serverTime - (_client getVariable "INF_IconStartTime");
     
     
     /* Opacity Control */
+    _ratio = 1 - (_dispTime / 10);
     
-    
-    if (_dispTime < 3) then {
-        _client setVariable ["INF_iconOpacity",1/_dispTime]; 
+    if (_dispTime < 4) then {
+        _client setVariable ["INF_iconOpacity",_ratio]; 
     };
     
-    if (_dispTime >= 3 && _dispTime < 8) {
+    if (_dispTime >= 4 && _dispTime < 8) {
         _client setVariable ["INF_iconOpacity",_opacity - .002]; 
     };
 

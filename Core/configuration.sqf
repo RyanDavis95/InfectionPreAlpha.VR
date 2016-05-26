@@ -6,14 +6,11 @@ _client setVariable ["INF_ClientReady",false,true];
 _client setVariable ["INF_zomAttack",false,true];
 _client setVariable ["INF_Team","UNASSIGNED",true];
 INF_FrameCount = 0;
-                /* Icon Variables */
 
-_client setVariable ["INF_iconColor", [0,1,1], true];
-_client setVariable ["INF_iconOpacity", 0, true];
-_client setVariable ["INF_hitUnit", false, true];
-_client setVariable ["INF_playerFired", false, true];
-_client setVariable ["INF_playerDead", false, true];
-_client setVariable ["INF_iconStartTime",serverTime,true];
+                /* Icon Variables */
+_client setVariable ["INF_DisplayIcon",false,true];
+_client setVariable ["INF_IconTime",serverTime,true];
+_client setVariable ["INF_IconType","",true];
 
 // Damage Vars
 _client setVariable ["INF_faceDmg",0,false];
