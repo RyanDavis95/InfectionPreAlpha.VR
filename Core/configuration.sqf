@@ -6,6 +6,7 @@ _client setVariable ["INF_ClientReady",false,true];
 _client setVariable ["INF_zomAttack",false,true];
 _client setVariable ["INF_Team","UNASSIGNED",true];
 INF_FrameCount = 0;
+INF_IconRefreshRate = getNumber (missionConfigFile >> "INF_Settings" >> "IconRefreshRate");
 
                 /* Icon Variables */
 _client setVariable ["INF_DisplayIcon",false,true];

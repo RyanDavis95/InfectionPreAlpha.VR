@@ -1,5 +1,7 @@
-params ["_client"];
+params ["_victim","_client"];
 
-_client setVariable ["INF_DisplayIcon",true,true];
-_client setVariable ["INF_IconTime",serverTime,true];
-_client setVariable ["INF_IconType","ENGAGED",true];
+if (_client getVariable "INF_Team" != _victim getVariable "INF_Team") then {
+    _client setVariable ["INF_DisplayIcon",true,true];
+    _client setVariable ["INF_IconTime",serverTime,true];
+    _client setVariable ["INF_IconType","ENGAGED",true];
+};
