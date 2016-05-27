@@ -75,3 +75,7 @@ addMissionEventHandler ["Draw3D",{
         } forEach Everything;
     };   
 }];
+
+"GUI_Message" addPublicVariableEventhandler {
+  INF_MessageQueue pushBack (_this select 1);
+};

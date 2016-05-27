@@ -7,6 +7,7 @@ _client setVariable ["INF_zomAttack",false,true];
 _client setVariable ["INF_Team","UNASSIGNED",true];
 _client setVariable ["INF_ItemDropped",false];
 INF_FrameCount = 0;
+INF_MessageQueue = [];
 INF_IconRefreshRate = getNumber (missionConfigFile >> "INF_Settings" >> "IconRefreshRate");
 
                 /* Icon Variables */

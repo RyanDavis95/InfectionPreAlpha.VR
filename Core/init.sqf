@@ -19,4 +19,7 @@ _client call INF_fnc_setupEVH;
 diag_log "Infection Client - Setup Complete";
 diag_log "****************************************";
 
+
+_handle = [] spawn INFD_fnc_messageHandler;
+
 _client setVariable ["INF_ClientReady",true,true];

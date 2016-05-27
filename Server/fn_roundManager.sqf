@@ -33,6 +33,17 @@
         diag_log "Round System - Round Started";      
         diag_log "----------------------------";
         
+    /*[
+		[["ArmA III:","<t align = 'center' shadow = '1' size = '0.7' font='PuristaBold'>%1</t>"],
+		["INFECTION","<t align = 'center' shadow = '1' size = '0.7'>%1</t><br/>"],
+		["Round Starting ...","<t align = 'center' shadow = '1' size = '1.0'>%1</t><br/>"]]
+
+	] spawn BIS_fnc_typeText;*/
+    
+    
+
+    
+    
                 /* Start New Round */
         waitUntil {sleep 1; !INFS_GameInProgress};       
     };

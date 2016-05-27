@@ -3,7 +3,9 @@ INFS_PickingZom = true;
 _alpha = objNull;
 _found = false;
 
-format ["Picking new Zombie"] remoteExec ["Hint",0,false];
+GUI_Message = "ZOMBIE";
+publicVariable "GUI_Message";
+
 _time = serverTime;
 _newZom = false;
 waitUntil {
@@ -33,3 +35,13 @@ if !(_newZom) then {
 
 [] call INFS_fnc_updateTeams;
 INFS_PickingZom = false;
+
+
+
+/*
+{
+    [_x,{       
+        waitUntil { _this getVariable ["INF_ClientReady",false]}; 
+        [] call INFD_fnc_zombieMessage;        
+    }] remoteExec ["spawn",0,false];
+} forEach INFS_CurrentPlayers; */

@@ -52,9 +52,19 @@ class Infection_Dialog {
           
           class drawIcon {};
           class handleIcons {}; 
-          class iconColor {};         
+          class iconColor {};  
+          class displayText {}; 
+          class messageHandler {}; 
+          
         };
         
+        class Messages {
+          file="Dialog\Messages";
+          
+          class welcomeMessage {};
+          class zombieMessage {};    
+           
+        };
         class Icons {
           file="Dialog\Icons";
           

@@ -5,7 +5,8 @@ class Commands
 
         //class setFuel {allowedTargets = 2;};           //execute only on server
         class hint {allowedTargets = 0;};
-        class setObjectTextureGlobal {allowedTargets = 0;};                      
+        class setObjectTextureGlobal {allowedTargets = 0;};
+        class spawn {allowedTargets = 0;};                      
 };
 class Functions
 {
@@ -17,5 +18,6 @@ class Functions
         class INF_fnc_spawnPlayer {allowedTargets = 1;};
         class INFS_fnc_setTeam {allowedTargets = 2;};
         class INF_fnc_initZombie {allowedTargets = 2;};
-        class INF_fnc_initSurvivor {allowedTargets = 2;}
+        class INF_fnc_initSurvivor {allowedTargets = 2;};
+        class INFD_fnc_zombieMessage {allowedTargets = 0;};
 };
