@@ -54,7 +54,8 @@ class Infection_Dialog {
           class handleIcons {}; 
           class iconColor {};  
           class displayText {}; 
-          class messageHandler {}; 
+          class messageHandler {};
+          class statDisplay {};
           
         };
         

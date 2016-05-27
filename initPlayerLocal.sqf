@@ -14,3 +14,6 @@ waitUntil { _client getVariable ["INF_ClientReady",false] };
 //"SETUP" cutText ["Setup Complete","BLACK IN",2,false];
 
 INF_MessageQueue pushBack "WELCOME";
+
+_client setVariable ["INF_KillStat",5,true];
+_client spawn INFD_fnc_statDisplay;
