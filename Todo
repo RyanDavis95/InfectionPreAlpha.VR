@@ -1,8 +1,22 @@
-
-Implement Stats system
-
-make Icons time based, not opacity based
- 
 ReConfigure zombie attack
 
+ReImplement Jumping
+
+Make pickups actually give things
+
+Tweak HandleDamage EVH
+
 Loadout Screen *
+    Select weapons and attatchments
+    Pick Appearance based on rank
+
+Make a better arena spawning system
+
+
+
+Later: HUD to display zombies and survivors
+        Current Health
+        Experience
+        Rank
+        Kills
+        Deaths
