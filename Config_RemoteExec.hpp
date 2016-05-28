@@ -20,4 +20,6 @@ class Functions
         class INF_fnc_initZombie {allowedTargets = 2;};
         class INF_fnc_initSurvivor {allowedTargets = 2;};
         class INFD_fnc_zombieMessage {allowedTargets = 0;};
+        class INFD_fnc_playerInfected {allowedTargets = 0;};
+        class INFD_fnc_survivorsEliminated {allowedTargets = 0;};
 };

@@ -34,11 +34,27 @@ _client addMPEventHandler["MPRespawn",{
 _client addMPEventhandler ["MPHit",{
         _victim = _this select 0;
         _source = _this select 1;
-        [_victim,_source] call INFD_fnc_engagedIcon;
+        _source call INFD_fnc_engagedIcon;
 }];
 
 _client addEventhandler ["Fired",{
-        (_this select 0) call INFD_fnc_movingIcon;
+        
+        _client = _this select 0;
+        _clientTeam = _client getVariable "INF_Team";
+        _nearPlayers = (_this select 0) nearEntities ["Man", 10];
+        _enemyClose = false;
+        
+        {
+            if (_x getVariable "INF_Team" != _clientTeam) then {
+                _enemyClose = true;
+            };
+        } forEach _nearPlayers;
+        
+        if (_enemyClose) then {
+           _client call INFD_fnc_engagedIcon;
+        } else {
+           _client call INFD_fnc_movingIcon;
+        };
 }];
  
 _client addEventHandler["HandleDamage",{
@@ -51,13 +67,9 @@ _client addEventHandler["HandleDamage",{
     0
 }];
 
-_client addMPEventHandler["MPKilled",{          
-     
-        
-    if ((_this select 0) getVariable "INF_Team" == "ZOMBIE") then {          
-        _this call INF_fnc_removeGlow;
-    };
-    
+_client addMPEventHandler["MPKilled",{
+    _victim = _this select 0;
+    _killer = _this select 1;
     _this call INF_fnc_updateStats;
     //(_this select 1) call INFD_fnc_killIcon;
     //(_this select 0) removeAllEventHandlers "HandleDamage"; 
@@ -75,7 +87,3 @@ addMissionEventHandler ["Draw3D",{
         } forEach Everything;
     };   
 }];
-
-"GUI_Message" addPublicVariableEventhandler {
-  INF_MessageQueue pushBack (_this select 1);
-};

@@ -1,3 +1,4 @@
+terminate INF_CurrentMessage;
 _handle = [
     [
         ["ARMA III: ","align = 'center' shadow = '1' size = '2.5' font='PuristaBold'"],

@@ -7,7 +7,7 @@ _client setVariable ["INF_zomAttack",false,true];
 _client setVariable ["INF_Team","UNASSIGNED",true];
 _client setVariable ["INF_ItemDropped",false];
 INF_FrameCount = 0;
-INF_MessageQueue = [];
+INF_CurrentMessage = [] spawn {};
 INF_IconRefreshRate = getNumber (missionConfigFile >> "INF_Settings" >> "IconRefreshRate");
 
                 /* Icon Variables */
@@ -39,7 +39,9 @@ INF_Songs = getArray (missionConfigFile >> "CfgMusic" >> "tracks");
 INF_ZombieSpeed = getNumber (missionConfigFile >> "INF_Settings" >> "Survivor_Speed");
 INF_SurvivorSpeed = getNumber (missionConfigFile >> "INF_Settings" >> "Zombie_Speed");
 
-
-_client setVariable ["INF_AssistStat",[],true];
-_client setVariable ["INF_KillStat",[],true];
+/* Stats */
+INF_KillXP = getNumber (missionConfigFile >> "INF_Settings" >> "KillXP");
+INF_AssistXP = getNumber (missionConfigFile >> "INF_Settings" >> "AssistXP");
+_client setVariable ["INF_AssistStat",0,true];
+_client setVariable ["INF_KillStat",0,true];
 _client setVariable ["INF_ShowStats",false,true];

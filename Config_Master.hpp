@@ -18,6 +18,11 @@ class INF_Settings {
     EngagedIconColor[] = {1,1,0};
     KilledIconColor[] = {1,0,0};
     
+    
+    /* Stats */
+    KillXP = 100;
+    AssistXP = 50;
+    
     /* Zombies */
     Zombie_Speed = 1.2;
     minPlayers = 1;

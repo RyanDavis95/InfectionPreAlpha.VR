@@ -3,9 +3,6 @@ INFS_PickingZom = true;
 _alpha = objNull;
 _found = false;
 
-GUI_Message = "ZOMBIE";
-publicVariable "GUI_Message";
-
 _time = serverTime;
 _newZom = false;
 waitUntil {
@@ -13,9 +10,7 @@ waitUntil {
     [] call INFS_fnc_updateTeams;
     if !(INFS_Zombies isEqualTo []) then {
         _newZom = true;       
-        {
-            (str _x + " has volunteered!") remoteExecCall ["hint",0,false];
-        } forEach INFS_Zombies;
+        (INFS_Zombies select 0) remoteExec ["INFD_fnc_playerInfected",INFS_CurrentPlayers,false];
     };
 (serverTime - _time > 10 || _newZom) 
 };
@@ -28,20 +23,10 @@ if !(_newZom) then {
         };
     };
     
-    format ["%1 is the Alpha Zombie!",name _alpha] remoteExec ["Hint",0,false];
+    _alpha remoteExec ["INFD_fnc_playerInfected",INFS_CurrentPlayers,false];
     [_alpha,"ZOMBIE"] call INFS_fnc_setTeam;
     _alpha remoteExec ["INF_fnc_initZombie",_alpha,false]; 
 };
 
 [] call INFS_fnc_updateTeams;
 INFS_PickingZom = false;
-
-
-
-/*
-{
-    [_x,{       
-        waitUntil { _this getVariable ["INF_ClientReady",false]}; 
-        [] call INFD_fnc_zombieMessage;        
-    }] remoteExec ["spawn",0,false];
-} forEach INFS_CurrentPlayers; */

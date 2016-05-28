@@ -1,10 +1,9 @@
+terminate INF_CurrentMessage;
 _handle = [
-    [
-        ["Selecting ","align = 'center' shadow = '1' size = '1.0'","#e1e1e1"],
-        ["Alpha ","align = 'center' shadow = '1' size = '1'","#ff3300"],
-        ["Zombie","align = 'center' shadow = '1' size = '1.0'","#e1e1e1"],
-        ["","<br/>"],
-        ["Please Wait...","align = 'center' shadow = '2' size = '.8'"]
-    ],0,0
-] spawn INFD_fnc_displayText;
-waitUntil { scriptDone _handle; };
+	[
+		["Selecting ","<t align = 'center' shadow = '1' size = '1'>%1</t>",5],
+		["ZOMBIE","<t align = 'center' size = '1' color = '#ffffff' >%1</t><br/>",5],
+		["Please Wait ...","<t align = 'center' shadow = '1' size = '0.7'>%1</t>",15]
+	], 0, safeZoneY + (.1 * (safeZoneY + safeZoneH))
+] spawn BIS_fnc_typeText;
+INF_CurrentMessage = _handle;

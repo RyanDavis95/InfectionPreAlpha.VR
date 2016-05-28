@@ -52,9 +52,7 @@ class Infection_Dialog {
           
           class drawIcon {};
           class handleIcons {}; 
-          class iconColor {};  
-          class displayText {}; 
-          class messageHandler {};
+          class iconColor {};
           class statDisplay {};
           
         };
@@ -62,8 +60,10 @@ class Infection_Dialog {
         class Messages {
           file="Dialog\Messages";
           
+          class survivorsEliminated {};
           class welcomeMessage {};
-          class zombieMessage {};    
+          class zombieMessage {};   
+          class playerInfected {}; 
            
         };
         class Icons {
