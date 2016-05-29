@@ -3,7 +3,7 @@ missionNamespace setVariable ["INF_GameInProgress",true,true];
 diag_log "Round Status - Started";
 
 [] spawn {
-    
+  
     waitUntil {
         [] call INFS_fnc_updateTeams;
         if (INFS_JIPQueue isEqualTo [] && INFS_Zombies isEqualTo [] && INFS_GameInProgress 

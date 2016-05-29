@@ -6,7 +6,7 @@ _time = serverTime + INFS_IntermissionTime;
 
 waitUntil { sleep .2; 
 
-    ("Restart in: "+ str round (_time - serverTime)) remoteExecCall ["hint",0,false];
+    //("Restart in: "+ str round (_time - serverTime)) remoteExecCall ["hint",0,false];
     
     if (serverTime >= _time) then {
         "" remoteExecCall ["hint",0,false];

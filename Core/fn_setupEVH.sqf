@@ -12,6 +12,7 @@ _client addMPEventHandler["MPRespawn",{
     _client = _this select 0;
     _corpse = _this select 1;
     _client setVariable ["INF_ItemDropped",false];
+    _client setVariable ["INF_AssistSources",[],true];
     
     if !(missionNamespace getVariable "INF_GameInProgress") then {
         _client call INF_fnc_initSurvivor;
@@ -34,6 +35,14 @@ _client addMPEventHandler["MPRespawn",{
 _client addMPEventhandler ["MPHit",{
         _victim = _this select 0;
         _source = _this select 1;
+
+        _currSources = _victim getVariable ["INF_AssistSources",[]];
+
+        if !(_source in _currSources) then {
+            _currSources = _currSources + [_source];
+            _victim setVariable ["INF_AssistSources", _currSources, true];                         
+        };
+          
         _source call INFD_fnc_engagedIcon;
 }];
 
@@ -62,7 +71,7 @@ _client addEventHandler["HandleDamage",{
         _damage = _this call INF_fnc_handleSurvDamage;
     };
     if ((_this select 0) getVariable "INF_Team" == "ZOMBIE") then {
-        _this call INF_fnc_handleZomDamage;
+        _this call INF_fnc_zombieDmg;
     };
     0
 }];
@@ -70,9 +79,14 @@ _client addEventHandler["HandleDamage",{
 _client addMPEventHandler["MPKilled",{
     _victim = _this select 0;
     _killer = _this select 1;
+    _currAssists = _victim getVariable ["INF_AssistSources",[]];
+    if (_killer in _currAssists) then {
+        _currAssists = _currAssists - [_killer];
+        _victim setVariable ["INF_AssistSources", _currAssists,true];
+    };    
     _this call INF_fnc_updateStats;
     //(_this select 1) call INFD_fnc_killIcon;
-    //(_this select 0) removeAllEventHandlers "HandleDamage"; 
+    _victim removeAllEventHandlers "HandleDamage"; 
 }];
 
 /* Draw Player Icons */

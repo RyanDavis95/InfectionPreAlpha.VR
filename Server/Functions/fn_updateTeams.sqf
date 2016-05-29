@@ -14,5 +14,14 @@ INFS_Unassigned = []; // Debug Var
     };       
 } forEach INFS_CurrentPlayers;
 
+_started = missionNamespace getVariable ["INF_GameInProgress",false];
+{
+    if (_started) then {
+        _x remoteExec ["INF_fnc_initZombie",_x,false];
+    } else {
+        _x remoteExec ["INF_fnc_initSurvivor",_x,false];
+    };
+} forEach INFS_Unassigned;
+
 missionNamespace setVariable ["INF_Survivors",INFS_Survivors,true];
 missionNamespace setVariable ["INF_Zombies",INFS_Zombies,true];

@@ -45,3 +45,4 @@ INF_AssistXP = getNumber (missionConfigFile >> "INF_Settings" >> "AssistXP");
 _client setVariable ["INF_AssistStat",0,true];
 _client setVariable ["INF_KillStat",0,true];
 _client setVariable ["INF_ShowStats",false,true];
+_client setVariable ["INF_AssistSources",[],true];

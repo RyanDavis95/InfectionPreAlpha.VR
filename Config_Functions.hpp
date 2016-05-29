@@ -38,8 +38,7 @@ class Infection_Core {
             file="Core\Zombies";
             
             class glowEffects {};
-            class HandleZomDamage {};
-            class removeGlow {};
+            class zombieDmg {};
             class zombieAttack {};
         };
         

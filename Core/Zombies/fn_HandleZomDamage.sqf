@@ -56,6 +56,4 @@ if( _client getVariable "INF_Team" != _source getVariable "INF_Team") then {
     if (_val >= 1) then {
         _client setVariable ["INF_UnitDmg", 0, true];
     };
-    
-    //hint str _val;
 };
