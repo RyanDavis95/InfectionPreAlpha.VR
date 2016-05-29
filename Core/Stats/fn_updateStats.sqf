@@ -79,8 +79,8 @@ if !(INF_ShowingStats isEqualTo []) exitWith {}; // Exit if there are more stat 
 if (_killer != _victim) then {
     
     /* Update Stats on Server */
-    _killer remoteExec ["INF_fnc_savePlayerStats",2,false];
-    
+    _killer remoteExec ["INFS_fnc_savePlayerStats",2,false];
+    _victim remoteExec ["INFS_fnc_savePlayerStats",2,false];
     /* Display Clickers on Client */
     //[[],INFD_fnc_statDisplay] remoteExec ["BIS_fnc_Spawn",_killer,false];
 };

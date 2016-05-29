@@ -1,10 +1,9 @@
 ReConfigure zombie attack
 
-ReImplement Jumping
+ReImplement Jumping (make it not suck shit)
 
 Make pickups actually give things
 
-Tweak HandleDamage EVH
 
 Loadout Screen *
     Select weapons and attatchments
@@ -13,10 +12,18 @@ Loadout Screen *
 Make a better arena spawning system
 
 
-
 Later: HUD to display zombies and survivors
         Current Health
         Experience
         Rank
         Kills
         Deaths
+        
+Stat HUD:
+
+    Say different things for different sides
+    Fix headshot display
+    check if assists are working properly
+    check if deaths are working
+    
+Disable user input until client is ready

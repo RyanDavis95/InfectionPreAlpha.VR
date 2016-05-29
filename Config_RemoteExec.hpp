@@ -14,6 +14,7 @@ class Functions
         jip = 1;
 
         class INFS_fnc_updateStat {allowedTargets = 0;};
+        class INFS_fnc_savePlayerStats {allowedTargets = 0;};
         class BIS_fnc_call {allowedTargets = 0;};
         class INF_fnc_spawnPlayer {allowedTargets = 1;};
         class INFS_fnc_setTeam {allowedTargets = 2;};

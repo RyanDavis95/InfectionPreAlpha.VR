@@ -81,12 +81,13 @@ _client addMPEventHandler["MPKilled",{
     _victim = _this select 0;
     _killer = _this select 1;    
     
-    _kills = _killer getVariable ["INF_Stat_Kills",0];
-    _killer setVariable ["INF_Stat_Kills",_kills+1,true];
-    
+    if (_killer != _victim) then {
+        _kills = _killer getVariable ["INF_Stat_Kills",0];
+        _killer setVariable ["INF_Stat_Kills",_kills+1,true];
+    };
+  
     _deaths = _victim getVariable ["INF_Stat_Deaths",0];
     _victim setVariable ["INF_Stat_Deaths",_deaths+1,true];
-
 
     _this spawn INF_fnc_updateStats;
     
