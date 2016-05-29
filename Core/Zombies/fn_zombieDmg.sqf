@@ -10,8 +10,7 @@ if( _client getVariable "INF_Team" !=
             _curr = _client getVariable ["INF_HeadDmg",0];
             _dmg = (_damage * .1) + _curr;
             if (_dmg >= 1 && _source != objNull) then {
-                _hs = _source getVariable ["INF_HeadshotStat",0];
-                _source setVariable ["INF_HeadshotStat",_hs+1,true];
+                [_client,"INF_Stat_Headshots"] call INF_fnc_incStat; 
             };
             _client setVariable ["INF_HeadDmg",_dmg,true];  
         };

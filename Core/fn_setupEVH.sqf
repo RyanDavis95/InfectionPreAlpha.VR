@@ -36,11 +36,11 @@ _client addMPEventhandler ["MPHit",{
         _victim = _this select 0;
         _source = _this select 1;
 
-        _currSources = _victim getVariable ["INF_AssistSources",[]];
+        _allAssists = _victim getVariable ["INF_Stat_ListAssists",[]];
 
-        if !(_source in _currSources) then {
-            _currSources = _currSources + [_source];
-            _victim setVariable ["INF_AssistSources", _currSources, true];                         
+        if !(_source in _allAssists) then {
+            _allAssists = _allAssists + [_source];
+            _victim setVariable ["INF_Stat_ListAssists", _allAssists, true];                         
         };
           
         _source call INFD_fnc_engagedIcon;
@@ -68,7 +68,7 @@ _client addEventhandler ["Fired",{
  
 _client addEventHandler["HandleDamage",{
     if ((_this select 0) getVariable "INF_Team" == "SURVIVOR") then {
-        _damage = _this call INF_fnc_handleSurvDamage;
+        _this call INF_fnc_handleSurvDamage;
     };
     if ((_this select 0) getVariable "INF_Team" == "ZOMBIE") then {
         _this call INF_fnc_zombieDmg;
@@ -78,12 +78,7 @@ _client addEventHandler["HandleDamage",{
 
 _client addMPEventHandler["MPKilled",{
     _victim = _this select 0;
-    _killer = _this select 1;
-    _currAssists = _victim getVariable ["INF_AssistSources",[]];
-    if (_killer in _currAssists) then {
-        _currAssists = _currAssists - [_killer];
-        _victim setVariable ["INF_AssistSources", _currAssists,true];
-    };    
+    _killer = _this select 1;   
     _this call INF_fnc_updateStats;
     //(_this select 1) call INFD_fnc_killIcon;
     _victim removeAllEventHandlers "HandleDamage"; 
