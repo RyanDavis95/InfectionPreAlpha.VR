@@ -1,4 +1,4 @@
-params ["_victim","_kiler"];
+params ["_victim","_killer"];
 private ["_time","_kills","_assists","_headshots","_totalXP","_killXP",
 "_assistXP","_headshotXP","_aTxt","_kTxt","_hsTxt","_handle"];
 
@@ -11,6 +11,7 @@ _kills = _killer getVariable ["INF_Stat_Kills",0];
 _assists = _killer getVariable ["INF_Stat_Assists",0];
 _headshots = _killer getVariable ["INF_Stat_Headshots",0];
 _allAssists = _victim getVariable ["INF_Stat_ListAssists",[]];
+_victim setVariable ["INF_Stat_ListAssists",[],true];
 
 _totalXP = 0;
 _killXP = _kills * INF_KillXP;
@@ -26,7 +27,7 @@ if (_killer in _allAssists) then {
 };
 {
     [_x,"INF_Stat_Assists"] call INF_fnc_incStat; 
-    _x remoteExec ["INF_updateStats",_x,false];
+    [[_victim,_x],"INF_updateStats"] remoteExec ["BIS_fnc_Spawn",_x,false];
 } forEach _allAssists;
 
 /* Kill XP Text */
@@ -72,19 +73,14 @@ _handle = [
 waitUntil { scriptDone _handle; };
 
 /* DeQueue Message */
-INF_ShowingScore = INF_ShowingScore - [_time];
-if !(INF_ShowingScore isEqualTo []) exitWith {}; // Exit if there are more stat updates
+INF_ShowingStats = INF_ShowingStats - [_time];
+if !(INF_ShowingStats isEqualTo []) exitWith {}; // Exit if there are more stat updates
 
 if (_killer != _victim) then {
     
     /* Update Stats on Server */
-    [_killer,"INF_Stat_Kills",_kills] remoteExec ["INFS_fnc_updateStat",2,false];
-    [_killer,"INF_Stat_Assists",_assists] remoteExec ["INFS_fnc_updateStat",2,false];
-    [_killer,"INF_Stat_Headshots",_headshots] remoteExec ["INFS_fnc_updateStat",2,false];
-    [_killer,"INF_Stat_XP",_totalXP] remoteExec ["INFS_fnc_updateStat",2,false];
+    _killer remoteExec ["INF_fnc_savePlayerStats",2,false];
     
     /* Display Clickers on Client */
-    [[],INFD_fnc_statDisplay] remoteExec ["BIS_fnc_Spawn",_killer,false];
+    //[[],INFD_fnc_statDisplay] remoteExec ["BIS_fnc_Spawn",_killer,false];
 };
-
-[_victim,"INF_Stat_Deaths",1] remoteExec ["INFS_fnc_updateStat",2,false];

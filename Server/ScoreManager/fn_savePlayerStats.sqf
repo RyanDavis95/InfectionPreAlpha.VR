@@ -10,7 +10,7 @@ private ["_value","_cVal"];
         _newVal = _this select 2;
         
         _curVal = profileNamespace getVariable [_stat,0];
-        profileNamespace setVariable [_stat, _newVal + _curVal];      
+        profileNamespace setVariable [_stat, _newVal + _curVal];
     }] remoteExecCall ["BIS_fnc_call",_client,false];
        
     _client setVariable [_x,0];

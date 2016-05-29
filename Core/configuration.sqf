@@ -42,6 +42,7 @@ INF_SurvivorSpeed = getNumber (missionConfigFile >> "INF_Settings" >> "Zombie_Sp
 /* Stats */
 INF_KillXP = getNumber (missionConfigFile >> "INF_Settings" >> "KillXP");
 INF_AssistXP = getNumber (missionConfigFile >> "INF_Settings" >> "AssistXP");
+INF_HeadshotXP = getNumber (missionConfigFile >> "INF_Settings" >> "HeadshotXP");
 _client setVariable ["INF_AssistStat",0,true];
 _client setVariable ["INF_KillStat",0,true];
 _client setVariable ["INF_ShowStats",false,true];

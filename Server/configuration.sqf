@@ -20,4 +20,4 @@ INFS_MinPlayers = getNumber (missionConfigFile >> "INF_Settings" >> "minPlayers"
 INFS_ScoreVars = getArray (missionConfigFile >> "INF_Settings" >> "playerStats");
 INFS_ItemDrops = getArray (missionConfigFile >> "INF_Settings" >> "itemDrops");
 INFS_IntermissionTime = getNumber (missionConfigFile >> "INF_Settings" >> "intermissionTime");
-INF_ShowingScore = [];
+INF_ShowingStats = [];

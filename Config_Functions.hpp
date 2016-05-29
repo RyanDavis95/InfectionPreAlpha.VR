@@ -22,9 +22,14 @@ class Infection_Core {
             class playMusic {};
             class setupGear {};
             class spawnPlayer {};
-            class updateStats {};
-            class zoneSpawn {};
             
+        };
+        
+        class {
+            file="Core\Stats";
+            
+            class incStat {};
+            class updateStats {};
         };
         
         class Survivors {
@@ -52,7 +57,6 @@ class Infection_Dialog {
           class drawIcon {};
           class handleIcons {}; 
           class iconColor {};
-          class statDisplay {};
           
         };
         

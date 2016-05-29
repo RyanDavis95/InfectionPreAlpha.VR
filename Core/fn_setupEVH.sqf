@@ -67,19 +67,29 @@ _client addEventhandler ["Fired",{
 }];
  
 _client addEventHandler["HandleDamage",{
+    _dmg = _this select 2;
     if ((_this select 0) getVariable "INF_Team" == "SURVIVOR") then {
-        _this call INF_fnc_handleSurvDamage;
+        //_this call INF_fnc_handleSurvDamage;
     };
     if ((_this select 0) getVariable "INF_Team" == "ZOMBIE") then {
-        _this call INF_fnc_zombieDmg;
+        _dmg = _this call INF_fnc_zombieDmg;
     };
-    0
+    _dmg
 }];
 
 _client addMPEventHandler["MPKilled",{
     _victim = _this select 0;
-    _killer = _this select 1;   
-    _this call INF_fnc_updateStats;
+    _killer = _this select 1;    
+    
+    _kills = _killer getVariable ["INF_Stat_Kills",0];
+    _killer setVariable ["INF_Stat_Kills",_kills+1,true];
+    
+    _deaths = _victim getVariable ["INF_Stat_Deaths",0];
+    _victim setVariable ["INF_Stat_Deaths",_deaths+1,true];
+
+
+    _this spawn INF_fnc_updateStats;
+    
     //(_this select 1) call INFD_fnc_killIcon;
     _victim removeAllEventHandlers "HandleDamage"; 
 }];
