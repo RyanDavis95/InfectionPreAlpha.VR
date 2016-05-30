@@ -1,6 +1,6 @@
 params ["_client"];
 
-[_client,"ZOMBIE"] call INFS_fnc_setTeam;
+_client setVariable ["INF_Team","ZOMBIE",true];
 
 /* Setup Event Handlers */
 _client call INF_fnc_setupEVH;

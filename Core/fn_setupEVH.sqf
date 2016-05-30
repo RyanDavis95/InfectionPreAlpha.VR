@@ -99,8 +99,8 @@ _client addMPEventHandler["MPKilled",{
 Everything = allDeadMen + allUnits;
 
 addMissionEventHandler ["Draw3D",{
-    INF_FrameCount = (INF_FrameCount + 1) % INF_IconRefreshRate;
-    if (INF_FrameCount % INF_IconRefreshRate == 0) then {      
+    INF_Settings_FrameCount = (INF_Settings_FrameCount + 1) % INF_Settings_IconRefreshRate;
+    if (INF_Settings_FrameCount % INF_Settings_IconRefreshRate == 0) then {      
         { 
             _type = _x getVariable ["INF_IconType",""];
             [_x,_type] call INFD_fnc_handleIcons; 

@@ -13,7 +13,6 @@ INFS_SpawnedStructures = [];
 INFS_JIPQueue = [];
 
 /* Backend Vars */
-INFS_ServerStarted = False;
 missionNamespace setVariable ["INF_Zone","",true];
 missionNamespace setVariable ["INF_GameInProgress",false,true];
 INFS_MinPlayers = getNumber (missionConfigFile >> "INF_Settings" >> "minPlayers");

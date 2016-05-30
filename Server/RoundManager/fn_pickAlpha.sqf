@@ -24,7 +24,6 @@ if !(_newZom) then {
     };
     
     _alpha remoteExec ["INFD_fnc_playerInfected",INFS_CurrentPlayers,false];
-    [_alpha,"ZOMBIE"] call INFS_fnc_setTeam;
     _alpha remoteExec ["INF_fnc_initZombie",_alpha,false]; 
 };
 

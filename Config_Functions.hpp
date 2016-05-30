@@ -96,14 +96,6 @@ class Infection_Server {
         class Functions {
            file="Server\Functions";
            
-           class connectedPlayer {};
-           class disconnectedPlayer {};
-           class pickAlpha {};
-           class setTeam {};
-           class unitKilled {};  
-           class updateTeams {};
-           class unitRespawned {};
-           
         };
         
         class Items {
@@ -118,27 +110,35 @@ class Infection_Server {
             
         };
         
+        class PlayerManager {
+            file="Server\PlayerManager";
+            
+            class connectedPlayer {};
+            class disconnectedPlayer {};
+            class unitKilled {};  
+            class unitRespawned {};
+            class updateTeams {};
+            class savePlayerStats {};
+            
+        };
+        
         class RoundManager {
             
             file="Server\RoundManager";
             
-            class getPlayers {};
+            class pickAlpha {};
             class resetWorld {};
-            class setupStats {};
-            class setupTeams {};
             class setupZone {};
             class startIntermission {};
             class startRound {};
+            class waitForEnd {};
+            class waitForPlayers {};
 
         };
         
         class ScoreManager {
             
-            file="Server\ScoreManager";
-            
-            class initScoreVars {};
-            class savePlayerStats {};
-            class updateStat {};  
+            file="Server\Stats";
                    
         };      
 };
