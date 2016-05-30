@@ -1,9 +1,12 @@
-ReConfigure zombie attack
-
 ReImplement Jumping (make it not suck shit)
 
 Make pickups actually give things
 
+Make timer for round to end - survivors win if not all killed
+
+ReImplement ranks
+
+KillStreaks
 
 Loadout Screen *
     Select weapons and attatchments
@@ -25,31 +28,3 @@ Stat HUD:
     Fix headshot display
     check if assists are working properly
     check if deaths are working
-    
-Disable user input until client is ready
-
-/////////////////////////////////////////////////
-Server starts
-
-Initializes Round
-
-Wait for X amount of players to be ready && init time up
-
-Start round
-
---------------------------------------------
-Connected players
-
-If round has not started, init as survivor
-else init as zombie
-
---------------------------------------------
-Disconnected Players
-
-wait for them to be gone and then kill the ai off
-
-
-////////////////Scripts//////////////////////
-need one to init player in general
-team specific inits aka zombie and survivor
-/////////////////////////////////////////////////

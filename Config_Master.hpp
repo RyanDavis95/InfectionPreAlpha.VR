@@ -7,6 +7,7 @@ class INF_Settings {
     Headshots_Only = false;
     IntermissionTime = 5;
     IconRefreshRate = 15;
+    minPlayers = 1;
     
     /* Enabled Abilities */
     Survivor_Mines = true;
@@ -26,7 +27,7 @@ class INF_Settings {
     
     /* Zombies */
     Zombie_Speed = 1.2;
-    minPlayers = 1;
+    Zombie_AttackDamage = .5;
     
     playerStats[] = {
         "INF_Stat_Kills",

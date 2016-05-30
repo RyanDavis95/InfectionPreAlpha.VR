@@ -28,7 +28,9 @@ _light lightAttachObject [_unit,[0,0,0.25]];
 _unit setVariable ["INF_ZombieLight",_light,false];
 
 _unit spawn { 
-  waitUntil { sleep 1; !alive _this || (_this getVariable "INF_Team") != "ZOMBIE"};  
-  _light = _this getVariable "INF_ZombieLight";
-  deleteVehicle _light;
+    _client = _this;
+    waitUntil { sleep 1; (!alive _client || (_client getVariable "INF_Team") != "ZOMBIE")}; 
+     
+    _light = _client getVariable "INF_ZombieLight";
+    deleteVehicle _light;
 };
