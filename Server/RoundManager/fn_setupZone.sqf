@@ -17,7 +17,3 @@ _zoneArr = [];
 _zone = _zoneArr call BIS_fnc_selectRandom;
 
 missionNamespace setVariable ["INF_Zone",_zone,true];
-
-{
-    _x remoteExec ["INF_fnc_spawnPlayer",_x,false];  
-} forEach INFS_CurrentPlayers;

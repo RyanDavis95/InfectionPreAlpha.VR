@@ -67,14 +67,15 @@ _client addEventhandler ["Fired",{
 }];
  
 _client addEventHandler["HandleDamage",{
+    _client = _this select 0;
     _dmg = _this select 2;
-    if ((_this select 0) getVariable "INF_Team" == "SURVIVOR") then {
+    if (_client getVariable "INF_Team" == "SURVIVOR") then {
         //_this call INF_fnc_handleSurvDamage;
     };
-    if ((_this select 0) getVariable "INF_Team" == "ZOMBIE") then {
+    if (_client getVariable "INF_Team" == "ZOMBIE") then {
         _dmg = _this call INF_fnc_zombieDmg;
     };
-    _dmg
+0
 }];
 
 _client addMPEventHandler["MPKilled",{

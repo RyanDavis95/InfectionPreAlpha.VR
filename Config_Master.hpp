@@ -1,13 +1,15 @@
 #define false 0
 #define true 1
+#define Minute 60;
 
 class INF_Settings {
     
     /* Damage Settings */
     Headshots_Only = false;
-    IntermissionTime = 5;
+    IntermissionTime = 15;
+    MaxRoundTime = 300;
     IconRefreshRate = 15;
-    minPlayers = 1;
+    minPlayers = 2;
     
     /* Enabled Abilities */
     Survivor_Mines = true;

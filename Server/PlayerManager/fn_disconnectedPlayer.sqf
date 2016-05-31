@@ -4,3 +4,4 @@ waitUntil {sleep .1; !isPlayer _unit};
 _unit setDammage 1;
 
 _unit enableSimulationGlobal false;
+[] call INFS_fnc_updateTeams;

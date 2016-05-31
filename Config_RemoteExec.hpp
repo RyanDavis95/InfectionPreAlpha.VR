@@ -15,7 +15,7 @@ class Functions
 
         class INFS_fnc_savePlayerStats {allowedTargets = 0;};
         class BIS_fnc_call {allowedTargets = 0;};
-        class INF_fnc_spawnPlayer {allowedTargets = 1;};
+        class INF_fnc_spawnPlayer {allowedTargets = 0;};
         class INF_fnc_initZombie {allowedTargets = 2;};
         class INF_fnc_initSurvivor {allowedTargets = 2;};
         class INFD_fnc_zombieMessage {allowedTargets = 0;};

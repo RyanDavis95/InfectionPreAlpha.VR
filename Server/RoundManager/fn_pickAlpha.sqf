@@ -9,8 +9,17 @@ waitUntil {
     sleep .1;
     [] call INFS_fnc_updateTeams;
     if !(INFS_Zombies isEqualTo []) then {
-        _newZom = true;   
-        (INFS_Zombies select 0) remoteExec ["INFD_fnc_playerInfected",INFS_CurrentPlayers,false];
+        _deadZom = false;
+        {
+            if (_x getVariable "INF_Team" == "ZOMBIE") then {
+                _deadZom = true;
+            };
+        } forEach INFS_DeadPlayers;
+        _newZom = false;
+        if (!_deadZom) then {
+            _newZom = true;   
+            (INFS_Zombies select 0) remoteExec ["INFD_fnc_playerInfected",INFS_CurrentPlayers,false];
+        };
     };
 (serverTime - _time > 10 || _newZom) 
 };

@@ -9,10 +9,11 @@ waitUntil {
         if (_x getVariable ["INF_ClientReady",false]) then {
             _readyPlayers = _readyPlayers + 1;
         };
-    } forEach INFS_CurrentPlayers;
+    } forEach _tmpPlayers;
     
     if (_readyPlayers >= INFS_minPlayers) then {
         _start = true;
     };
+    
     _start
 };

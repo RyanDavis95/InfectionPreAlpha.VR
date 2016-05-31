@@ -57,6 +57,7 @@ class Infection_Dialog {
           class drawIcon {};
           class handleIcons {}; 
           class iconColor {};
+          class static {};
           
         };
         
@@ -64,7 +65,7 @@ class Infection_Dialog {
           file="Dialog\Messages";
           
           class survivorsEliminated {};
-          class welcomeMessage {};
+          class welcomeScreen {};
           class zombieMessage {};   
           class playerInfected {}; 
            
@@ -89,7 +90,7 @@ class Infection_Server {
           file="Server";
           
           class roundManager {};
-          class setupEVH {};
+          class setupEVH {preInit=1;};
           
         };
         
@@ -115,6 +116,7 @@ class Infection_Server {
             
             class connectedPlayer {};
             class disconnectedPlayer {};
+            class setupPlayer {};
             class unitKilled {};  
             class unitRespawned {};
             class updateTeams {};

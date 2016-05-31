@@ -2,7 +2,7 @@ _readyPlayers = [];
 _tmpSurvivors = [];
 _tmpZombies = [];
 
-_tmpPlayers = playableUnits + allDeadMen;//[] call BIS_fnc_listPlayers;
+_tmpPlayers = playableUnits;//[] call BIS_fnc_listPlayers;
 {
     if (_x getVariable ["INF_ClientReady",false]) then {
         _readyPlayers pushBack _x;
@@ -24,3 +24,4 @@ INFS_Unassigned = []; // Debug Var
 
 INFS_Survivors = _tmpSurvivors;
 INFS_Zombies = _tmpZombies;
+INFS_DeadPlayers = allDeadMen;

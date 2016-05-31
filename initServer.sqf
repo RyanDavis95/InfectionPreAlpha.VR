@@ -8,4 +8,10 @@ if (isServer) then {
     diag_log "****************************************";
     INFS_ServerStarted = True;
     missionNamespace setVariable ["INF_ServerStarted", INFS_ServerStarted, true];
+    
+
+    {
+        _x spawn INFS_fnc_setupPlayer;
+    } forEach allUnits;
+
 };

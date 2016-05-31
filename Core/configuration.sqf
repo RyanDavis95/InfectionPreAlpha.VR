@@ -11,7 +11,7 @@ INF_Settings_CurrentMessage = [] spawn {};
 INF_Settings_IconRefreshRate = getNumber (missionConfigFile >> "INF_Settings" >> "IconRefreshRate");
 INF_Settings_SurvivorSpeed = getNumber (missionConfigFile >> "INF_Settings" >> "Survivor_Speed");
 INF_Settings_ZombieSpeed = getNumber (missionConfigFile >> "INF_Settings" >> "Zombie_Speed");
-INF_Settings_ZombieAttackDamage = getNumber (missionConfigFile >> "INF_Settings" >> "Zombie_AttackDamage")
+INF_Settings_ZombieAttackDamage = getNumber (missionConfigFile >> "INF_Settings" >> "Zombie_AttackDamage");
 
                 /* Icon Variables */
 _client setVariable ["INF_DisplayIcon",false,true];
