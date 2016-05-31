@@ -27,6 +27,7 @@ INF_DefaultIconColor = getArray (missionConfigFile >> "INF_Settings" >> "Default
 INF_Songs = getArray (missionConfigFile >> "CfgMusic" >> "tracks");
 INF_ZombieSpeed = getNumber (missionConfigFile >> "INF_Settings" >> "Survivor_Speed");
 INF_SurvivorSpeed = getNumber (missionConfigFile >> "INF_Settings" >> "Zombie_Speed");
+_client setVariable ["INF_isJumping",false,true];
 
 /* Stats */
 INF_KillXP = getNumber (missionConfigFile >> "INF_Settings" >> "KillXP");
