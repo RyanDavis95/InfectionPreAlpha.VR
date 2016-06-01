@@ -1,8 +1,9 @@
 params ["_client"];
 private ["_value","_cVal"];
-
+_vars = [];
 {
     _newVal = _client getVariable _x;
+    _vars pushBack _newVal;
     [[_client,_x,_newVal],{
         private ["_client","_stat","_newVal","_curVal"];
         _client = _this select 0;
@@ -17,4 +18,5 @@ private ["_value","_cVal"];
     
 } forEach INFS_ScoreVars;
 
+hint str _vars;
 {saveProfileNamespace;} remoteExec ["BIS_fnc_call",_client,false];

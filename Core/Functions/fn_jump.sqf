@@ -1,4 +1,4 @@
-if (isTouchingGround player && player getVariable ["INF_isJumping",false]) then {
+if (isTouchingGround player && !(player getVariable ["INF_isJumping",false])) then {
 	player setVariable ["INF_isJumping",true,true];
 	_vel = velocity player;
 	_dir = direction player;

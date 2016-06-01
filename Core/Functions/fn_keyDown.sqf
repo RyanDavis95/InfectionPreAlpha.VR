@@ -4,7 +4,7 @@ _handled = false;
 switch (_key) do {
     /* Space */
     case 57: {
-        player spawn INF_fnc_jump;
+        _script = player spawn INF_fnc_jump;
         _handled = true;
      };
     default { };

@@ -104,7 +104,7 @@ addMissionEventHandler ["Draw3D",{
     if (INF_Settings_FrameCount % INF_Settings_IconRefreshRate == 0) then {      
         { 
             _type = _x getVariable ["INF_IconType",""];
-            [_x,_type] call INFD_fnc_handleIcons; 
+            //[_x,_type] call INFD_fnc_handleIcons; 
         } forEach Everything;
     };   
 }];

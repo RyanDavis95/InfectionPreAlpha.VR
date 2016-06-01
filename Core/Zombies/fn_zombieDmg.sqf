@@ -4,7 +4,6 @@ private ["_dmg"];
 _dmg = 0;
 if( _client getVariable "INF_Team" != 
     _source getVariable "INF_Team") then {
-        hint "hit1";
     
     switch (_selectionName) do {
         case "head": {

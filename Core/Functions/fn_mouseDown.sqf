@@ -2,7 +2,6 @@ params ["_id","_mouse","_shift","_ctrl","_alt"];
 
 _handled = false;
 switch (_mouse) do {
-    
     /* Right Click */
     case 0: {
         if (player getVariable "INF_Team" == "ZOMBIE") then {
