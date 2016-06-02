@@ -1,6 +1,6 @@
 params ["_client"];
 
-_team = _client getVariable "INF_Team";
+_team = _client getVariable "INF_Client_Team";
 
 removeHeadgear _client;
 removeGoggles _client;

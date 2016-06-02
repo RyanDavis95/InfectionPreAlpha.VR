@@ -24,10 +24,17 @@ class Infection_Core {
             class spawnPlayer {};
             
         };
-        
-        class {
+        class Icons {
+            file="Core\Icons";  
+            
+            class displayIcon {};
+            class drawIcon {};
+            
+        };
+        class Stats {
             file="Core\Stats";
             
+            class decStat {};
             class incStat {};
             class updateStats {};
         };

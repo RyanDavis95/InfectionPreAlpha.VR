@@ -30,7 +30,7 @@ if (!_dropped) then {
                 _dist = 100000;
                 _closest = objNull;
                 {
-                    if((_x getVariable "INF_Team") == "SURVIVOR" && (_x distance _item < _dist)) then {
+                    if((_x getVariable "INF_Client_Team") == "SURVIVOR" && (_x distance _item < _dist)) then {
                         _dist = _x distance _item;
                         _closest = _x;
                     };

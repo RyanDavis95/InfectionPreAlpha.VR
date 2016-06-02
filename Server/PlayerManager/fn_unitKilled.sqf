@@ -1,7 +1,7 @@
 params ["_unit","_killer"];
 private ["_team"];
 
-_team = _unit getVariable "INF_Team";
+_team = _unit getVariable "INF_Client_Team";
 
 if (_team == "SURVIVOR") then {
     _grave = createVehicle ["Land_Grave_dirt_F",

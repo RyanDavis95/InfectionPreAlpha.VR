@@ -1,6 +1,6 @@
 params ["_client"];
 
-_client setVariable ["INF_Team","SURVIVOR",true];
+_client setVariable ["INF_Client_Team","SURVIVOR",true];
 
 /* Setup Event Handlers */
 _client call INF_fnc_setupEVH;

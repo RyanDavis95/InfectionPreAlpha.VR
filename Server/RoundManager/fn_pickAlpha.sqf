@@ -11,7 +11,7 @@ waitUntil {
     if !(INFS_Zombies isEqualTo []) then {
         _deadZom = false;
         {
-            if (_x getVariable "INF_Team" == "ZOMBIE") then {
+            if (_x getVariable "INF_Client_Team" == "ZOMBIE") then {
                 _deadZom = true;
             };
         } forEach INFS_DeadPlayers;

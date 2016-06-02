@@ -1,19 +1,19 @@
-private["_playedSongs","_totalSongs","_selected","_found"];
+private["_played","_totalSongs","_found","_selected"];
 
-_playedSongs = player getVariable ["INF_playedMusic",[]];
-_totalSongs = count INF_Songs;
+_played = INF_Settings_PlayedSongs;
+_totalSongs = count INF_Settings_Songs;
 _found = False;
 
-if (count _playedSongs == _totalSongs) then {
-    _playedSongs = [];
+if (count _played == _totalSongs) then {
+    _played = [];
 };
 
 while {!_found} do {
-    _selected = INF_Songs call BIS_fnc_selectRandom;
+    _selected = INF_Settings_Songs call BIS_fnc_selectRandom;
     
-    if !(_selected in _playedSongs) then {
-        _playedSongs pushBack _selected;
-        player setVariable ["INF_playedMusic",_playedSongs,false];
+    if !(_selected in _played) then {
+        _played pushBack _selected;
+        INF_Settings_playedSongs = _played;
         _found = True;
     };
 };

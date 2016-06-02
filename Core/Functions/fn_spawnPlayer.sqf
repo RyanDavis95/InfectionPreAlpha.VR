@@ -1,14 +1,14 @@
 params ["_client"];
-private ["_zone","_pos"];
+private ["_found","_genPos","_zone","_pos"];
 
-if (missionNamespace getVariable ["INF_Zone",""] == "") exitWith {getPos _client};
+if (missionNamespace getVariable ["INF_Settings_Zone",""] == "") exitWith {getPos _client};
 
 _found = false;
 _genPos = [];
-_zone = missionNamespace getVariable "INF_Zone";
+_zone = missionNamespace getVariable "INF_Settings_Zone";
 _pos = getMarkerPos _zone;
 
-
+private ["_dir","_x","_y","_xLength","_yLength","_tmpPos",]
 while {!_found} do {
     _dir = random 360;
     _x = cos (_dir);
@@ -20,7 +20,7 @@ while {!_found} do {
     
     //Set Pos Above Objects
     _tmpPos = getPos _client;
-    _client setPos [_genPos select 0, _genPos select 1, 500];
+    _client modelToWorld [0,0,500];
 
     _height = (getPosATL _client select 2) - (getPos _client select 2); 
     _client setVelocity [0,0,0]; 

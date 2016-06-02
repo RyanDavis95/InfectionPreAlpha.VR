@@ -1,7 +1,6 @@
 params ["_unit"];
-private ["_team"];
 
-switch (_unit getVariable ["INF_Team","UNASSIGNED"]) do {
+switch (_unit getVariable "INF_Client_Team") do {
     case "SURVIVOR": {
         _unit setHit ["chest", 0];
         _unit setHit ["hands", 0];

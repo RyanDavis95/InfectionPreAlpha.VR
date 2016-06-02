@@ -11,7 +11,7 @@ if !(_client getVariable ["INF_ZombieAttacking",false]) then {
     if (count _victims > 0) then {
         _survivors = [];
         {
-            if (_x getVariable "INF_Team" == "SURVIVOR") then {
+            if (_x getVariable "INF_Client_Team" == "SURVIVOR") then {
                 _survivors pushBack _x;
             };
         } forEach _victims;

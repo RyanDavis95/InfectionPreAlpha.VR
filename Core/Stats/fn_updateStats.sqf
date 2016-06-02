@@ -7,28 +7,27 @@ _time = serverTime;
 INF_ShowingStats pushBack _time;
 
 /* Init Variables */
-_kills = _killer getVariable ["INF_Stat_Kills",0];
-_assists = _killer getVariable ["INF_Stat_Assists",0];
-_headshots = _killer getVariable ["INF_Stat_Headshots",0];
-_allAssists = _victim getVariable ["INF_Stat_ListAssists",[]];
-_victim setVariable ["INF_Stat_ListAssists",[],true];
+_kills = _killer getVariable "INF_Client_Kills";
+_assists = _killer getVariable "INF_Client_Assists";
+_headshots = _killer getVariable "INF_Client_Headshots";
+_attackers = _victim getVariable "INF_Stat_Attackers";
 
 _totalXP = 0;
-_killXP = _kills * INF_KillXP;
-_assistXP = _assists * INF_AssistXP;
-_headshotXP = _headshots * INF_HeadshotXP;
+_killXP = _kills * INF_Stats_KillXP;
+_assistXP = _assists * INF_Stats_AssistXP;
+_headshotXP = _headshots * INF_Stats_HeadshotXP;
 _aTxt = "";
 _kTxt = "";
 _hsTxt = "";
 
 /* Manage Assists */
-if (_killer in _allAssists) then {
-    _allAssists = _allAssists - [_killer];
+if (_killer in _assists) then {
+    _assists = _assists - [_killer];
 };
 {
-    [_x,"INF_Stat_Assists"] call INF_fnc_incStat; 
-    [[_victim,_x],"INF_updateStats"] remoteExec ["BIS_fnc_Spawn",_x,false];
-} forEach _allAssists;
+    [_x,"INF_Client_Assists"] call INF_fnc_incStat; 
+    [[_victim,_x],"INF_fnc_updateStats"] remoteExec ["BIS_fnc_Spawn",_x,false];
+} forEach _attackers;
 
 /* Kill XP Text */
 if (_killXP > 0) then {
@@ -58,11 +57,13 @@ if (_headshotXP > 0) then {
 };
 
 /* Total XP Text */
-_xpTxt = parseText format [
-    "<t size ='1' color='#ffffff' align='center'>%1</t>
-    <t size='1' color='#FFD700' align='right'>%2</t><br/>",
-    "Total: ","+"+str (_assistXP+_killXP+_headshotXP)   
-];
+if (_totalXP > 0) then {
+    _xpTxt = parseText format [
+        "<t size ='1' color='#ffffff' align='center'>%1</t>
+        <t size='1' color='#FFD700' align='right'>%2</t><br/>",
+        "Total: ","+"+str (_assistXP+_killXP+_headshotXP)   
+    ];
+};
 
 /* Draw Stat Text to Screen */
 _handle = [
@@ -76,11 +77,7 @@ waitUntil { scriptDone _handle; };
 INF_ShowingStats = INF_ShowingStats - [_time];
 if !(INF_ShowingStats isEqualTo []) exitWith {}; // Exit if there are more stat updates
 
-if (_killer != _victim) then {
-    
-    /* Update Stats on Server */
+/* Show Stats on Client */
+if (_killer != _victim) then {   
     _killer remoteExec ["INFS_fnc_savePlayerStats",2,false];
-    _victim remoteExec ["INFS_fnc_savePlayerStats",2,false];
-    /* Display Clickers on Client */
-    //[[],INFD_fnc_statDisplay] remoteExec ["BIS_fnc_Spawn",_killer,false];
 };

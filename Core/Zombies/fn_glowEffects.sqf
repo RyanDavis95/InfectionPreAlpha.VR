@@ -25,12 +25,12 @@ _thresh = false;
 };
 _light setLightColor [0,0,0];
 _light lightAttachObject [_unit,[0,0,0.25]];
-_unit setVariable ["INF_ZombieLight",_light,false];
+INF_Settings_Glow = _light;
 
 _unit spawn { 
     _client = _this;
-    waitUntil { sleep 1; (!alive _client || (_client getVariable "INF_Team") != "ZOMBIE")}; 
+    waitUntil { sleep 1; (!alive _client || (_client getVariable "INF_Client_Team") != "ZOMBIE")}; 
      
-    _light = _client getVariable "INF_ZombieLight";
+    _light = INF_Settings_Glow;
     deleteVehicle _light;
 };

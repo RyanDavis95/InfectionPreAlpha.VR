@@ -13,7 +13,7 @@ INFS_CurrentPlayers = _readyPlayers;
 INFS_Unassigned = []; // Debug Var
 
 {
-    _team = _x getVariable ["INF_Team","UNASSIGNED"];
+    _team = _x getVariable ["INF_Client_Team","UNASSIGNED"];
 
     switch (_team) do {
         case "SURVIVOR": {_tmpSurvivors pushBack _x;};

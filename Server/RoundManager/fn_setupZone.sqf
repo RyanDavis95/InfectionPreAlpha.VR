@@ -16,4 +16,4 @@ _zoneArr = [];
 
 _zone = _zoneArr call BIS_fnc_selectRandom;
 
-missionNamespace setVariable ["INF_Zone",_zone,true];
+missionNamespace setVariable ["INF_Settings_Zone",_zone,true];

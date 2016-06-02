@@ -14,7 +14,7 @@ INFS_SpawnedStructures = [];
 INFS_JIPQueue = [];
 
 /* Backend Vars */
-missionNamespace setVariable ["INF_Zone","",true];
+missionNamespace setVariable ["INF_Settings_Zone","",true];
 missionNamespace setVariable ["INF_GameInProgress",false,true];
 INFS_MinPlayers = getNumber (missionConfigFile >> "INF_Settings" >> "minPlayers");
 INFS_ScoreVars = getArray (missionConfigFile >> "INF_Settings" >> "playerStats");
