@@ -5,7 +5,7 @@ waitUntil { (missionNamespace getVariable ["INF_ServerStarted",false])
             && !isNull player && getClientState == "BRIEFING READ" && !isNull (findDisplay 46)};
             
 /* Initialize Client */
-_client spawn INFD_fnc_welcomeScreen;
+//_client spawn INFD_fnc_welcomeScreen;
 _client call compile preProcessFileLineNumbers "Core\init.sqf";
 
 /* Set Client as Ready */

@@ -18,7 +18,7 @@ _client addMPEventHandler["MPRespawn",{
     } else {
         
         if ( _team == "SURVIVOR") then {           
-            [_corpse,"DEAD"] spawn INF_fnc_displayIcon;
+            [_corpse,"DEAD"] spawn INF_fnc_modIcon;
         };
         
         if (_team == "ZOMBIE") then {
@@ -40,14 +40,11 @@ _client addMPEventhandler ["MPHit",{
             _allAssists = _allAssists + [_source];
             _victim setVariable ["INF_Client_Attackers", _allAssists, true];                         
         };
-          
-        //_source call INFD_fnc_engagedIcon;
 }];
 
 _client addEventhandler ["Fired",{
-        
         _client = _this select 0;
-        [_client,"ENGAGED"] spawn INF_fnc_displayIcon;
+        [_client,"ENGAGED"] spawn INF_fnc_modIcon;
 }];
  
 _client addEventHandler["HandleDamage",{
@@ -77,18 +74,9 @@ _client addMPEventHandler["MPKilled",{
 
     _this spawn INF_fnc_updateStats;
     
-    [_killer,"KILL"] spawn INF_fnc_displayIcon;
+    [_killer,"KILL"] spawn INF_fnc_modIcon;
     _victim removeAllEventHandlers "HandleDamage"; 
 }];
 
 /* Draw Player Icons */
 Everything = allDeadMen + allUnits;
-
-addMissionEventHandler ["Draw3D",{
-    INF_Settings_FrameCount = (INF_Settings_FrameCount + 1) % INF_Icons_RefreshRate;
-    if (INF_Settings_FrameCount % INF_Icons_RefreshRate == 0) then {      
-        { 
-            _x spawn INF_fnc_drawIcon;
-        } forEach Everything;
-    };   
-}];

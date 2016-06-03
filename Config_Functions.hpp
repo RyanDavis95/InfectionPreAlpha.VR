@@ -27,7 +27,7 @@ class Infection_Core {
         class Icons {
             file="Core\Icons";  
             
-            class displayIcon {};
+            class modIcon {};
             class drawIcon {};
             
         };
@@ -61,9 +61,6 @@ class Infection_Dialog {
         class Functions {
           file="Dialog\Functions";
           
-          class drawIcon {};
-          class handleIcons {}; 
-          class iconColor {};
           class static {};
           
         };
@@ -76,15 +73,6 @@ class Infection_Dialog {
           class zombieMessage {};   
           class playerInfected {}; 
            
-        };
-        class Icons {
-          file="Dialog\Icons";
-          
-          class deadIcon {};
-          class engagedIcon {};
-          class killIcon {};
-          class movingIcon {};
-             
         };
 };
 

@@ -13,3 +13,4 @@ _client setAnimSpeedCoef INF_Settings_ZombieSpeed;
 
 _client setVariable ["INF_Client_HeadDamage",0,true];
 _client setVariable ["INF_Client_OtherDamage",0,true];
+[_client,"NORMAL"] spawn INF_fnc_modIcon;

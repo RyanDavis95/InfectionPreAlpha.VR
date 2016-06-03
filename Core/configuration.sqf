@@ -40,5 +40,5 @@ INF_Icons_EngagedIconColor = getArray (missionConfigFile >> "INF_Settings" >> "E
 INF_Icons_DefaultIconColor = getArray (missionConfigFile >> "INF_Settings" >> "DefaultIconColor");
 INF_Icons_RefreshRate = getNumber (missionConfigFile >> "INF_Settings" >> "IconRefreshRate");
 INF_Icons_Updates = [];
-INF_Icons_Texture = "";
-INF_Icons_Color = [];
+_client setVariable ["INF_Icons_Texture","",true];
+_client setVariable ["INF_Icons_Color",[0,0,0,0],true];
