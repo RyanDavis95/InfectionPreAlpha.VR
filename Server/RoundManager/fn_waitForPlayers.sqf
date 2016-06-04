@@ -13,7 +13,6 @@ waitUntil {
     
     if (_readyPlayers >= INFS_minPlayers) then {
         _start = true;
-    };
-    
+    };    
     _start
 };

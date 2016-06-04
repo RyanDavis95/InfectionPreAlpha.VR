@@ -26,7 +26,7 @@ waitUntil {
 
 if !(_newZom) then {
     while {!_found} do {
-        _alpha = INFS_CurrentPlayers call BIS_fnc_SelectRandom;      
+        _alpha = selectRandom INFS_CurrentPlayers;      
         if (alive _alpha && _alpha getVariable ["INF_ClientReady",false]) then {
             _found = true;
         };

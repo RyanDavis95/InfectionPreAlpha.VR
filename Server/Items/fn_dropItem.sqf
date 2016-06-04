@@ -2,7 +2,7 @@ params ["_client"];
 private ["_itemType"];
 
 _dropped = _client getVariable ["INF_ItemDropped",true];
-_itemType = INFS_ItemDrops call BIS_fnc_selectRandom;
+_itemType = selectRandom INFS_ItemDrops;
 
 if (!_dropped) then {
     _client setVariable ["INF_ItemDropped",true];

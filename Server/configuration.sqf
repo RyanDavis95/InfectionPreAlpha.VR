@@ -22,3 +22,8 @@ INFS_ItemDrops = getArray (missionConfigFile >> "INF_Settings" >> "itemDrops");
 INFS_IntermissionTime = getNumber (missionConfigFile >> "INF_Settings" >> "intermissionTime");
 INFS_Settings_TimeLimit = getNumber (missionConfigFile >> "INF_Settings" >> "MaxRoundTime");
 INF_ShowingStats = [];
+
+/* Disable Players */
+{
+    _x enableSimulationGlobal false;
+} forEach playableUnits;

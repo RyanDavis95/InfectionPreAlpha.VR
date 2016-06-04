@@ -9,7 +9,7 @@ if (count _played == _totalSongs) then {
 };
 
 while {!_found} do {
-    _selected = INF_Settings_Songs call BIS_fnc_selectRandom;
+    _selected = selectRandom INF_Settings_Songs;
     
     if !(_selected in _played) then {
         _played pushBack _selected;

@@ -14,6 +14,6 @@ _zoneArr = [];
     };
 } forEach _markers;
 
-_zone = _zoneArr call BIS_fnc_selectRandom;
+_zone = selectRandom _zoneArr;
 
 missionNamespace setVariable ["INF_Settings_Zone",_zone,true];

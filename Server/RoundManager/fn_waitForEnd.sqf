@@ -27,7 +27,6 @@ waitUntil {
             hint "Survivors Win!";
             _endRound = true;
         };           
-    };             
-      
+    };      
     _endRound
 };
