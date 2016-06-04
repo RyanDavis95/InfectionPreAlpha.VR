@@ -6,9 +6,9 @@ class INF_Settings {
     
     /* Damage Settings */
     Headshots_Only = false;
-    IntermissionTime = 15;
+    IntermissionTime = 5;
     MaxRoundTime = 300;
-    IconRefreshRate = 15;
+    IconRefreshRate = 5;
     minPlayers = 2;
     
     /* Enabled Abilities */

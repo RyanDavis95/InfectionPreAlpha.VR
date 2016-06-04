@@ -18,5 +18,4 @@ _vars = [];
     
 } forEach INFS_ScoreVars;
 
-hint str _vars;
 {saveProfileNamespace;} remoteExec ["BIS_fnc_call",_client,false];

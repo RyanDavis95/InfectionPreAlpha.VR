@@ -7,10 +7,10 @@ _time = serverTime;
 INF_ShowingStats pushBack _time;
 
 /* Init Variables */
-_kills = _killer getVariable "INF_Client_Kills";
-_assists = _killer getVariable "INF_Client_Assists";
-_headshots = _killer getVariable "INF_Client_Headshots";
-_attackers = _victim getVariable "INF_Stat_Attackers";
+_kills = _killer getVariable "INF_Stats_Kills";
+_assists = _killer getVariable "INF_Stats_Assists";
+_headshots = _killer getVariable "INF_Stats_Headshots";
+_attackers = _victim getVariable "INF_Stats_Attackers";
 
 _totalXP = 0;
 _killXP = _kills * INF_Stats_KillXP;
@@ -19,13 +19,14 @@ _headshotXP = _headshots * INF_Stats_HeadshotXP;
 _aTxt = "";
 _kTxt = "";
 _hsTxt = "";
+_xpTxt = "";
 
 /* Manage Assists */
-if (_killer in _assists) then {
-    _assists = _assists - [_killer];
+if (_killer in _attackers) then {
+    _attackers = _attackers - [_killer];
 };
 {
-    [_x,"INF_Client_Assists"] call INF_fnc_incStat; 
+    [_x,"INF_Stats_Assists"] call INF_fnc_incStat; 
     [[_victim,_x],"INF_fnc_updateStats"] remoteExec ["BIS_fnc_Spawn",_x,false];
 } forEach _attackers;
 

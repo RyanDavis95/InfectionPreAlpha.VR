@@ -8,7 +8,7 @@ _genPos = [];
 _zone = missionNamespace getVariable "INF_Settings_Zone";
 _pos = getMarkerPos _zone;
 
-private ["_dir","_x","_y","_xLength","_yLength","_tmpPos",]
+private ["_dir","_x","_y","_xLength","_yLength","_tmpPos"];
 while {!_found} do {
     _dir = random 360;
     _x = cos (_dir);

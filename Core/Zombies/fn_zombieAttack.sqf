@@ -17,7 +17,6 @@ if !(_client getVariable ["INF_ZombieAttacking",false]) then {
         } forEach _victims;
         if (count _survivors > 0) then {
             _victim = _survivors select 0;
-            hint str _victim;
             _currDmg = getDammage _victim;
             _victim setDammage (1/2 + _currDmg);
         };

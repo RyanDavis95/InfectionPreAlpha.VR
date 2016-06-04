@@ -13,6 +13,14 @@ _client call compile PreprocessFileLineNumbers "core\configuration.sqf";
 addMusicEventHandler ["MusicStop",{[] call INF_fnc_playMusic}];
 [] call INF_fnc_playMusic;
 
+if (isPlayer _client) then {
+    addMissionEventHandler ["EachFrame",{
+        { 
+            _x call INF_fnc_drawIcon;
+        } forEach playableUnits;
+}];
+};
+
 _client call INF_fnc_setupEVH;
 
 diag_log "Infection Client - Setup Complete";
