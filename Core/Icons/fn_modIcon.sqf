@@ -2,7 +2,8 @@ params ["_client","_type"];
 private ["_startTime","_displayTime"];
 
 _startTime = serverTime;
-INF_Icons_Updates = INF_Icons_Updates + [_startTime];
+_client setVariable ["INF_Icons_Updating",false,true];
+
 
 _fadeTime = 5;
 _color1 = [];
@@ -34,13 +35,12 @@ switch (_type) do {
 
 _client setVariable ["INF_Icons_Color",_color1,true];
 
-waitUntil {
+while {_modColor} do {
     /* Adjustment amount */
     _adj = (serverTime - _startTime)/_fadeTime; //add time as zero divisor workaround
-    hint format ["%1\n%2\n%3",random 1,INF_Icons_Updates,_startTime];
+    
+    
     /* Difference */
-    _currColor = _client getVariable "INF_Icons_Color";
-
     _r = (_color2 select 0) - (_color1 select 0);
     _g = (_color2 select 1) - (_color1 select 1);
     _b = (_color2 select 2) - (_color1 select 2); 
@@ -53,10 +53,10 @@ waitUntil {
     /* Set Icon Color */
     _client setVariable ["INF_Icons_Color",[_newR,_newG,_newB,1],true];
     
-    if (_adj >= 1) then {
+
+    if (_adj >= 1 || count INF_Icons_Updates > 1) then {
         _modColor = false;
     };
-    (!_modColor || (count INF_Icons_Updates > 1))
 };
 
 INF_Icons_Updates = INF_Icons_Updates - [_startTime];
