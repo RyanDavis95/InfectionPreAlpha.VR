@@ -1,14 +1,11 @@
 params ["_client","_type"];
 private ["_startTime","_displayTime"];
 
-_startTime = serverTime;
-_client setVariable ["INF_Icons_Updating",false,true];
-
-
-_fadeTime = 5;
 _color1 = [];
 _color2 = [];
 _modColor = false;
+
+
 switch (_type) do {
     case "ENGAGED": {
         _modColor = true; 
@@ -28,35 +25,47 @@ switch (_type) do {
     };
     case "DEAD": { 
         _color1 = [1,0,0,1];
-        _client setVariable ["INF_Icons_Texture",INF_Settings_MissionRoot +"Resources\Images\dead_CA.paa",true];
+        _client setVariable ["INF_Icons_Texture","a3\ui_f_curator\data\cfgmarkers\kia_ca.paa",true];
         };
     default { };
 };
 
+if (_modColor) then {
+    terminate INF_Icons_FadeThread;
+};
+
 _client setVariable ["INF_Icons_Color",_color1,true];
 
-while {_modColor} do {
-    /* Adjustment amount */
-    _adj = (serverTime - _startTime)/_fadeTime; //add time as zero divisor workaround
+if (_modColor) then {
     
-    
-    /* Difference */
-    _r = (_color2 select 0) - (_color1 select 0);
-    _g = (_color2 select 1) - (_color1 select 1);
-    _b = (_color2 select 2) - (_color1 select 2); 
-    
-    /* Adjust Icon Color */
-    _newR = (_r * _adj) + (_color1 select 0);
-    _newG = (_g * _adj) + (_color1 select 1);
-    _newB = (_b * _adj) + (_color1 select 2);
-    
-    /* Set Icon Color */
-    _client setVariable ["INF_Icons_Color",[_newR,_newG,_newB,1],true];
-    
+    INF_Icons_FadeThread = [_client,_color1,_color2,serverTime] spawn {
+        
+        waitUntil {
+            _client = _this select 0;
+            _color1 = _this select 1;
+            _color2 = _this select 2;
+            _startTime = _this select 3;
+            
+            /* Adjustment amount */
+            _adj = (serverTime - _startTime) / INF_Icons_FadeTime;
 
-    if (_adj >= 1 || count INF_Icons_Updates > 1) then {
-        _modColor = false;
+            /* Difference */
+            _r = (_color2 select 0) - (_color1 select 0);
+            _g = (_color2 select 1) - (_color1 select 1);
+            _b = (_color2 select 2) - (_color1 select 2); 
+
+            /* Adjust Icon Color */
+            _newR = (_r * _adj) + (_color1 select 0);
+            _newG = (_g * _adj) + (_color1 select 1);
+            _newB = (_b * _adj) + (_color1 select 2);
+
+            /* Set Icon Color */
+            _client setVariable ["INF_Icons_Color",[_newR,_newG,_newB,1],true];
+
+            /* Exit if fade completed */
+            (_adj >= 1)
+        };
+        
     };
 };
 
-INF_Icons_Updates = INF_Icons_Updates - [_startTime];

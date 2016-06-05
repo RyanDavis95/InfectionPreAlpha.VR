@@ -9,6 +9,7 @@ class INF_Settings {
     IntermissionTime = 5;
     MaxRoundTime = 300;
     IconRefreshRate = 5;
+    IconFadeTime = 5;
     minPlayers = 2;
     
     /* Enabled Abilities */
@@ -16,6 +17,7 @@ class INF_Settings {
     Survivor_Sprint = true;
     Survivor_Heal = true;
     Survivor_Speed = 1;
+    Zombie_Speed = 1.25;
     
     DefaultIconColor[] = {0,1,1};
     EngagedIconColor[] = {1,1,0};
@@ -32,11 +34,11 @@ class INF_Settings {
     Zombie_AttackDamage = .5;
     
     playerStats[] = {
-        "INF_Stat_Kills",
-        "INF_Stat_Assists",
-        "INF_Stat_Headshots",
-        "INF_Stat_XP",
-        "INF_Stat_Deaths"
+        "INF_Stats_Kills",
+        "INF_Stats_Assists",
+        "INF_Stats_Headshots",
+        "INF_Stats_XP",
+        "INF_Stats_Deaths"
         };
     
     /* Droppable Items */

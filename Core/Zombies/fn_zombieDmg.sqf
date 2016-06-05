@@ -7,12 +7,14 @@ if( _client getVariable "INF_Client_Team" !=
     
     switch (_selectionName) do {
         case "head": {
-            _curr = _client getVariable ["INF_Client_HeadDamage",0];
+            _curr = _client getVariable ["INF_Client_HeadDamage",0];         
             _dmg = (_damage * .1) + _curr;
-            if (_dmg >= 1 && _source != objNull) then {
-                [_client,"INF_Stats_Headshots"] call INF_fnc_incStat; 
-            };
             _client setVariable ["INF_Client_HeadDamage",_dmg,true];  
+            
+            if (_dmg >= 1 && isPlayer _source) then {
+                [_source,"INF_Stats_Headshots"] call INF_fnc_incStat; 
+            };
+            
         };
         case "": {
             /* Overall Dmg before triggered - Dont Modify */

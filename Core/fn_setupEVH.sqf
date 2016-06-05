@@ -18,7 +18,7 @@ _client addMPEventHandler["MPRespawn",{
     } else {
         
         if ( _team == "SURVIVOR") then {           
-            [_corpse,"DEAD"] spawn INF_fnc_modIcon;
+            
         };
         
         if (_team == "ZOMBIE") then {
@@ -52,7 +52,7 @@ _client addEventHandler["HandleDamage",{
     _dmg = _this select 2;
     _team = _client getVariable "INF_Client_Team";
     if (_team == "SURVIVOR") then {
-        //_this call INF_fnc_handleSurvDamage;
+        _this call INF_fnc_handleSurvDamage;
     };
     if (_team == "ZOMBIE") then {
         _dmg = _this call INF_fnc_zombieDmg;
@@ -65,18 +65,13 @@ _client addMPEventHandler["MPKilled",{
     _killer = _this select 1;    
     
     if (_killer != _victim) then {
-        _kills = _killer getVariable ["INF_Client_Kills",0];
-        _killer setVariable ["INF_Client_Kills",_kills+1,true];
-    };
-  
-    _deaths = _victim getVariable ["INF_Client_Deaths",0];
-    _victim setVariable ["INF_Client_Deaths",_deaths+1,true];
+        [_killer, "INF_Stats_Kills"] call INF_fnc_incStat;
+        [_killer,"KILL"] spawn INF_fnc_modIcon;
+    }; 
+    
+    [_victim, "INF_Stats_Deaths"] call INF_fnc_incStat;
 
     _this spawn INF_fnc_updateStats;
     
-    [_killer,"KILL"] spawn INF_fnc_modIcon;
     _victim removeAllEventHandlers "HandleDamage"; 
 }];
-
-/* Draw Player Icons */
-Everything = allDeadMen + allUnits;

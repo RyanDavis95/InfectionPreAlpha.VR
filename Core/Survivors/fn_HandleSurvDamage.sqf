@@ -4,4 +4,6 @@ if( _unit getVariable "INF_Client_Team" != _source getVariable "INF_Client_Team"
     
 };
 
-0
+if (_source != objNull && _unit != _source) then {
+    _unit setDammage 1;
+};

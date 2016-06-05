@@ -2,7 +2,7 @@ __EXEC (MISSION_ROOT = __FILE__ select [0, count __FILE__ - 15])
 
 author = "Ryan Davis";
 disabledAI = 0;
-
+allowFunctionsRecompile = 1;
 #include "Config_Master.hpp"
 
 class CfgFunctions

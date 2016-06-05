@@ -13,11 +13,16 @@ _client call compile PreprocessFileLineNumbers "core\configuration.sqf";
 addMusicEventHandler ["MusicStop",{[] call INF_fnc_playMusic}];
 [] call INF_fnc_playMusic;
 
+everything = playableUnits + INFS_SpawnedStructures;
+
 if (isPlayer _client) then {
     addMissionEventHandler ["EachFrame",{
-        { 
+        {
+            if (_x != _client) then {
+                //Move here when implemented
+            };
             _x call INF_fnc_drawIcon;
-        } forEach playableUnits;
+        } forEach everything;
 }];
 };
 

@@ -12,10 +12,10 @@ _assists = _killer getVariable "INF_Stats_Assists";
 _headshots = _killer getVariable "INF_Stats_Headshots";
 _attackers = _victim getVariable "INF_Stats_Attackers";
 
-_totalXP = 0;
 _killXP = _kills * INF_Stats_KillXP;
 _assistXP = _assists * INF_Stats_AssistXP;
 _headshotXP = _headshots * INF_Stats_HeadshotXP;
+hint format ["%1\n%2\n%3",_headshots,INF_Stats_HeadshotXP,_headshotXP];
 _aTxt = "";
 _kTxt = "";
 _hsTxt = "";
@@ -57,12 +57,14 @@ if (_headshotXP > 0) then {
     ];
 };
 
+_totalXP = _assistXP + _killXP + _headshotXP;
+
 /* Total XP Text */
 if (_totalXP > 0) then {
     _xpTxt = parseText format [
         "<t size ='1' color='#ffffff' align='center'>%1</t>
         <t size='1' color='#FFD700' align='right'>%2</t><br/>",
-        "Total: ","+"+str (_assistXP+_killXP+_headshotXP)   
+        "Total: ","+"+str (_totalXP)   
     ];
 };
 
