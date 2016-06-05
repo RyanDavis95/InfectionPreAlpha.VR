@@ -1,8 +1,8 @@
 while {true} do {
     
-    INFS_RoundStartTime = serverTime;
-    INFS_RoundNumber = INFS_RoundNumber + 1;
-    diag_log format ["----Starting Round %1----",INFS_RoundNumber];  
+    INFS_Round_StartTime = serverTime;
+    INFS_Round_Number = INFS_Round_Number + 1;
+    diag_log format ["----Starting Round %1----",INFS_Round_Number];  
 
     diag_log "Round System - Cleaning Up World";
     [] call INFS_fnc_resetWorld;
@@ -21,9 +21,9 @@ while {true} do {
         waitUntil { scriptDone _handle; };
     diag_log "Round System - Round Started";    
         
-    diag_log "----Round Ended: "+str((serverTime-INFS_RoundStartTime)/60)+" Minutes----";
+    diag_log "----Round Ended: "+str((serverTime-INFS_Round_StartTime)/60)+" Minutes----";
             /* Start New Round */
-    waitUntil {sleep 1; !INFS_GameInProgress};
+    waitUntil {sleep 1; !INFS_Round_InProgress};
     sleep 10;
     
 };

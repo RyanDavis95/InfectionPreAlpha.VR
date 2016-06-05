@@ -10,8 +10,15 @@ _spawnCount = 0;
 diag_log format ["CleanUp - %1 Bodies Removed",_bodyCount];
 
 {
-    _spawnCount = _spawnCount + 1;
+    _graveCount = _graveCount + 1;
     deleteVehicle _x;  
-} forEach INFS_SpawnedStructures;
+} forEach INFS_Lists_Graves;
 
-diag_log format ["CleanUp - %1 Structures Removed",_spawnCount];
+diag_log format ["CleanUp - %1 Graves Removed",_graveCount];
+
+{
+    _dropCount = _dropCount + 1;
+    deleteVehicle _x;  
+} forEach INFS_Lists_Drops;
+
+diag_log format ["CleanUp - %1 Drops Removed",_dropCount];

@@ -1,27 +1,28 @@
 /* Round Variables */
-INFS_GameInProgress = False;
-INFS_RoundNumber = 0;
-INFS_RoundStartTime = serverTime;
-INFS_RoundLocation = "";
-INFS_PickingZom = False;
+INFS_Round_InProgress = False;
+INFS_Round_Number = 0;
+INFS_Round_StartTime = serverTime;
+INFS_Round_Location = "";
+INFS_Round_PickingZombie = False;
 
 /* Lists Of Things */
-INFS_CurrentPlayers = [];
-INFS_Zombies = [];
-INFS_Survivors = [];
-INFS_Unassigned = [];
-INFS_SpawnedStructures = [];
-INFS_JIPQueue = [];
+INFS_Lists_Players = [];
+INFS_Lists_Zombies = [];
+INFS_Lists_Survivors = [];
+INFS_Lists_Unassigned = [];
+INFS_Lists_DeadPlayers = [];
+INFS_Lists_Graves = [];
+INFS_Lists_Drops = [];
 
 /* Backend Vars */
 missionNamespace setVariable ["INF_Settings_Zone","",true];
 missionNamespace setVariable ["INF_GameInProgress",false,true];
-INFS_MinPlayers = getNumber (missionConfigFile >> "INF_Settings" >> "minPlayers");
-INFS_ScoreVars = getArray (missionConfigFile >> "INF_Settings" >> "playerStats");
-INFS_ItemDrops = getArray (missionConfigFile >> "INF_Settings" >> "itemDrops");
-INFS_IntermissionTime = getNumber (missionConfigFile >> "INF_Settings" >> "intermissionTime");
+INFS_Settings_MinPlayers = getNumber (missionConfigFile >> "INF_Settings" >> "minPlayers");
+INFS_Settings_ScoreVars = getArray (missionConfigFile >> "INF_Settings" >> "playerStats");
+INFS_Settings_ItemDrops = getArray (missionConfigFile >> "INF_Settings" >> "itemDrops");
+INFS_Settings_IntermissionTime = getNumber (missionConfigFile >> "INF_Settings" >> "intermissionTime");
 INFS_Settings_TimeLimit = getNumber (missionConfigFile >> "INF_Settings" >> "MaxRoundTime");
-INF_ShowingStats = [];
+
 
 /* Disable Players */
 {

@@ -6,7 +6,7 @@ waitUntil {
     _readyPlayers = 0;
     _start = false;
     {
-        if (_x getVariable ["INF_ClientReady",false]) then {
+        if (_x getVariable ["INF_Client_Ready",false]) then {
             _readyPlayers = _readyPlayers + 1;
         };
     } forEach _tmpPlayers;

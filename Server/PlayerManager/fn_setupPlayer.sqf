@@ -2,10 +2,10 @@ params ["_client"];
 
 {
     _client setVariable [_x,0,true];
-} forEach INFS_ScoreVars;
+} forEach INFS_Settings_ScoreVars;
 
-waitUntil {sleep .05; _client getVariable ["INF_ClientReady",false]};
-if (!INFS_GameInProgress) then {
+waitUntil {sleep .05; _client getVariable ["INF_Client_Ready",false]};
+if (!INFS_Round_InProgress) then {
     _client remoteExec ["INF_fnc_initSurvivor",_client,false];
 } else {
     _client remoteExec ["INF_fnc_initZombie",_client,false];

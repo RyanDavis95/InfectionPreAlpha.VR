@@ -9,5 +9,5 @@ waitUntil { (missionNamespace getVariable ["INF_ServerStarted",false])
 _client call compile preProcessFileLineNumbers "Core\init.sqf";
 
 /* Set Client as Ready */
-_client setVariable ["INF_ClientReady",true,true];
-waitUntil {_client getVariable ["INF_ClientReady",false]};
+_client setVariable ["INF_Client_Ready",true,true];
+waitUntil {_client getVariable ["INF_Client_Ready",false]};

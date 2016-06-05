@@ -12,7 +12,7 @@ INF_Settings_Songs = getArray (missionConfigFile >> "CfgMusic" >> "tracks");
 INF_Settings_PlayedSongs = [];
 
 /* Player Variables */
-_client setVariable ["INF_Client_ClientReady",false,true];
+_client setVariable ["INF_Client_Ready",false,true];
 _client setVariable ["INF_Client_ZombieAttack",false,true];
 _client setVariable ["INF_Client_Team","UNASSIGNED",true];
 _client setVariable ["INF_Client_ItemDropped",false];
@@ -25,6 +25,7 @@ INF_Stats_KillXP = getNumber (missionConfigFile >> "INF_Settings" >> "KillXP");
 INF_Stats_AssistXP = getNumber (missionConfigFile >> "INF_Settings" >> "AssistXP");
 INF_Stats_HeadshotXP = getNumber (missionConfigFile >> "INF_Settings" >> "HeadshotXP");
 INF_Settings_ShowStats = [];
+INF_ShowingStats = [] spawn {};
 _client setVariable ["INF_Stats_ShowStats",false,true];
 _client setVariable ["INF_Stats_Attackers",[],true];
 _client setVariable ["INF_Stats_Kills",0,true];

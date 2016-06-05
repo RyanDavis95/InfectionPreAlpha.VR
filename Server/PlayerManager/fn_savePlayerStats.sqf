@@ -17,6 +17,6 @@ private ["_newVal","_currVal"];
        
     _client setVariable [_x,0];
     
-} forEach INFS_ScoreVars;
+} forEach INFS_Settings_ScoreVars;
 
 {saveProfileNamespace;} remoteExec ["BIS_fnc_call",_client,false];

@@ -1,20 +1,20 @@
 params ["_client"];
 private ["_itemType"];
 
-_dropped = _client getVariable ["INF_ItemDropped",true];
-_itemType = selectRandom INFS_ItemDrops;
+_dropped = _client getVariable ["INF_Client_ItemDropped",true];
+_itemType = selectRandom INFS_Settings_ItemDrops;
 
 if (!_dropped) then {
-    _client setVariable ["INF_ItemDropped",true];
+    _client setVariable ["INF_Client_ItemDropped",true];
     _item = createVehicle [_itemType,[
             (getPos _client) select 0,(getPos _client) select 1, ((getPos _client) select 2) + .5], 
             [], 
             0, 
             "CAN_COLLIDE"
     ];
-    _item setVariable ["INF_objDir", getDir _item, true];
+    _item setVariable ["INF_Drops_Dir", getDir _item, true];
 
-    INFS_SpawnedStructures pushBack _item;
+    INFS_Lists_Drops pushBack _item;
 
     [_item,_itemType] spawn {
         _item = _this select 0;
@@ -23,8 +23,8 @@ if (!_dropped) then {
         waitUntil {  _list = (getPos _item) nearEntities ["MAN",1];
             _found = false;
             _item setPos _itemPos; // Keep hovering
-            _item setDir ((_item getVariable ["INF_objDir",0]) + .2);
-            _item setVariable ["INF_objDir",getDir _item,true];
+            _item setDir ((_item getVariable ["INF_Drops_Dir",0]) + .2);
+            _item setVariable ["INF_Drops_Dir",getDir _item,true];
             
             if (count _list > 0) then {
                 _dist = 100000;
@@ -37,7 +37,7 @@ if (!_dropped) then {
                 } forEach _list;
                 [_closest,_itemType] call INFS_fnc_itemPickup;
                 deleteVehicle _item;
-                INFS_SpawnedStructures = INFS_SpawnedStructures - [_item];
+                INFS_Lists_Drops = INFS_Lists_Drops - [_item];
                 _found = true
             };
             _found

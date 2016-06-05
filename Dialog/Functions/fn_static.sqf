@@ -27,7 +27,7 @@ _handle = [
     ],-.2,1
 ] spawn BIS_fnc_typeText2;   
 
-waitUntil { _client getVariable ["INF_ClientReady",false] &&  scriptDone _handle };
+waitUntil { _client getVariable ["INF_Client_Ready",false] &&  scriptDone _handle };
 
 _layerInterlacing cutText ["","plain"];
 _layerNoise cutText ["","plain"];

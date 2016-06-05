@@ -1,6 +1,6 @@
 params ["_client"];
 
-if (player getVariable "INF_ClientReady") then {
+if (player getVariable "INF_Client_Ready") then {
     _infected = name _client;
 
     terminate INF_Settings_CurrentMessage;

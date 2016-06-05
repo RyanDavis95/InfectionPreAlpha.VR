@@ -1,4 +1,4 @@
-if (player getVariable "INF_ClientReady") then {
+if (player getVariable "INF_Client_Ready") then {
     terminate INF_Settings_CurrentMessage;
     _handle = [
         [

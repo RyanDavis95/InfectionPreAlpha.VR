@@ -14,7 +14,7 @@ if (_team == "SURVIVOR") then {
     _grave setDir (getDir _client);
     _grave setVariable ["INF_Icons_Text",name _client,true];
     [_grave,"DEAD"] spawn INF_fnc_modIcon;
-    INFS_SpawnedStructures pushBack _grave;
+    INFS_Lists_Graves pushBack _grave;
 };
 
 if (_team == "ZOMBIE") then {

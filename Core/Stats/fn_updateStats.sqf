@@ -4,7 +4,6 @@ private ["_time","_kills","_assists","_headshots","_totalXP","_killXP",
 
 /* Queue Stat Update */
 _time = serverTime;
-INF_ShowingStats pushBack _time;
 
 /* Init Variables */
 _kills = _killer getVariable "INF_Stats_Kills";
@@ -15,7 +14,7 @@ _attackers = _victim getVariable "INF_Stats_Attackers";
 _killXP = _kills * INF_Stats_KillXP;
 _assistXP = _assists * INF_Stats_AssistXP;
 _headshotXP = _headshots * INF_Stats_HeadshotXP;
-hint format ["%1\n%2\n%3",_headshots,INF_Stats_HeadshotXP,_headshotXP];
+//hint format ["%1\n%2\n%3",_headshots,INF_Stats_HeadshotXP,_headshotXP];
 _aTxt = "";
 _kTxt = "";
 _hsTxt = "";
@@ -68,17 +67,14 @@ if (_totalXP > 0) then {
     ];
 };
 
+terminate INF_Stats_Current;
 /* Draw Stat Text to Screen */
-_handle = [
+INF_Stats_Current = [
         composeText [_kTxt, _hsTxt, _aTxt, _xpTxt],
         [safeZoneX + .05,safeZoneY+safeZoneH - .2,.5,.15],
         [10,3],5,.5,0
     ] spawn BIS_fnc_textTiles;   
 waitUntil { scriptDone _handle; };
-
-/* DeQueue Message */
-INF_ShowingStats = INF_ShowingStats - [_time];
-if !(INF_ShowingStats isEqualTo []) exitWith {}; // Exit if there are more stat updates
 
 /* Show Stats on Client */
 if (_killer != _victim) then {   

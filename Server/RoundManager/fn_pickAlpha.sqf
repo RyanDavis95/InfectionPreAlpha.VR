@@ -1,5 +1,5 @@
 private ["_alpha","_found"];
-INFS_PickingZom = true;
+INFS_Round_PickingZombie = true;
 _alpha = objNull;
 _found = false;
 
@@ -8,17 +8,17 @@ _newZom = false;
 waitUntil {
     sleep .1;
     [] call INFS_fnc_updateTeams;
-    if !(INFS_Zombies isEqualTo []) then {
+    if !(INFS_Lists_Zombies isEqualTo []) then {
         _deadZom = false;
         {
             if (_x getVariable "INF_Client_Team" == "ZOMBIE") then {
                 _deadZom = true;
             };
-        } forEach INFS_DeadPlayers;
+        } forEach INFS_Lists_DeadPlayers;
         _newZom = false;
         if (!_deadZom) then {
             _newZom = true;   
-            (INFS_Zombies select 0) remoteExec ["INFD_fnc_playerInfected",INFS_CurrentPlayers,false];
+            (INFS_Lists_Zombies select 0) remoteExec ["INFD_fnc_playerInfected",INFS_Lists_Players,false];
         };
     };
 (serverTime - _time > 10 || _newZom) 
@@ -26,15 +26,15 @@ waitUntil {
 
 if !(_newZom) then {
     while {!_found} do {
-        _alpha = selectRandom INFS_CurrentPlayers;      
-        if (alive _alpha && _alpha getVariable ["INF_ClientReady",false]) then {
+        _alpha = selectRandom INFS_Lists_Players;      
+        if (alive _alpha && _alpha getVariable ["INF_Client_Ready",false]) then {
             _found = true;
         };
     };
     
-    _alpha remoteExec ["INFD_fnc_playerInfected",INFS_CurrentPlayers,false];
+    _alpha remoteExec ["INFD_fnc_playerInfected",INFS_Lists_Players,false];
     _alpha remoteExec ["INF_fnc_initZombie",_alpha,false]; 
 };
 
 [] call INFS_fnc_updateTeams;
-INFS_PickingZom = false;
+INFS_Round_PickingZombie = false;

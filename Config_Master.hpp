@@ -17,7 +17,6 @@ class INF_Settings {
     Survivor_Sprint = true;
     Survivor_Heal = true;
     Survivor_Speed = 1;
-    Zombie_Speed = 1.25;
     
     DefaultIconColor[] = {0,1,1};
     EngagedIconColor[] = {1,1,0};
