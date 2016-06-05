@@ -19,13 +19,13 @@ _client setVariable ["INF_Client_ItemDropped",false];
 _client setVariable ["INF_Client_Jumping",false,true];
 _client setVariable ["INF_Client_HeadDamage",0,true];
 _client setVariable ["INF_Client_OtherDamage",0,true];
+_client setVariable ["INF_Client_GraveSpawned",false,true];
 
 /* Stats Config */
 INF_Stats_KillXP = getNumber (missionConfigFile >> "INF_Settings" >> "KillXP");
 INF_Stats_AssistXP = getNumber (missionConfigFile >> "INF_Settings" >> "AssistXP");
 INF_Stats_HeadshotXP = getNumber (missionConfigFile >> "INF_Settings" >> "HeadshotXP");
-INF_Settings_ShowStats = [];
-INF_ShowingStats = [] spawn {};
+INF_Stats_Current = [] spawn {};
 _client setVariable ["INF_Stats_ShowStats",false,true];
 _client setVariable ["INF_Stats_Attackers",[],true];
 _client setVariable ["INF_Stats_Kills",0,true];

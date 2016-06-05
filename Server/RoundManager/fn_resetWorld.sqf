@@ -1,6 +1,7 @@
 private ["_bodyCount","_spawncount"];
 _bodyCount = 0;
-_spawnCount = 0;
+_graveCount = 0;
+_dropCount = 0;
 
 {
     _bodyCount = _bodyCount + 1;

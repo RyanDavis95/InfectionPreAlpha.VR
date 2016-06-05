@@ -67,14 +67,16 @@ if (_totalXP > 0) then {
     ];
 };
 
+/* Suspend Last Draw */
 terminate INF_Stats_Current;
+
 /* Draw Stat Text to Screen */
 INF_Stats_Current = [
         composeText [_kTxt, _hsTxt, _aTxt, _xpTxt],
         [safeZoneX + .05,safeZoneY+safeZoneH - .2,.5,.15],
         [10,3],5,.5,0
     ] spawn BIS_fnc_textTiles;   
-waitUntil { scriptDone _handle; };
+waitUntil { scriptDone INF_Stats_Current; };
 
 /* Show Stats on Client */
 if (_killer != _victim) then {   

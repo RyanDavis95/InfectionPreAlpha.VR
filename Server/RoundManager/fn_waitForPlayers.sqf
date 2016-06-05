@@ -11,8 +11,9 @@ waitUntil {
         };
     } forEach _tmpPlayers;
     
-    if (_readyPlayers >= INFS_minPlayers) then {
+    if (_readyPlayers >= INFS_Settings_MinPlayers) then {
         _start = true;
-    };    
+    };
+
     _start
 };

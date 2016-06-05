@@ -6,7 +6,7 @@ waitUntil {
     
     [] call INFS_fnc_updateTeams;
        
-    if (INFS_Zombies isEqualTo [] && !INFS_Round_PickingZombie) then {
+    if (INFS_Lists_Zombies isEqualTo [] && !INFS_Round_PickingZombie) then {
         remoteExec ["INFD_fnc_zombieMessage",INFS_Lists_Players,false];
         _handle = [] spawn INFS_fnc_pickAlpha;
         waitUntil { scriptDone _handle; };     

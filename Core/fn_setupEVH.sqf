@@ -67,11 +67,10 @@ _client addMPEventHandler["MPKilled",{
     if (_killer != _victim) then {
         [_killer, "INF_Stats_Kills"] call INF_fnc_incStat;
         [_killer,"KILL"] spawn INF_fnc_modIcon;
+        _this spawn INF_fnc_updateStats;
     }; 
     
     [_victim, "INF_Stats_Deaths"] call INF_fnc_incStat;
-
-    _this spawn INF_fnc_updateStats;
-    
+       
     _victim removeAllEventHandlers "HandleDamage"; 
 }];

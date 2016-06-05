@@ -4,7 +4,7 @@ private ["_startTime","_displayTime"];
 _color1 = [];
 _color2 = [];
 _modColor = false;
-
+_team = _client getVariable "INF_Client_Team";
 
 switch (_type) do {
     case "ENGAGED": {
@@ -13,9 +13,17 @@ switch (_type) do {
         _color2 = [0,1,1,1];
         _client setVariable ["INF_Icons_Texture",INF_Settings_MissionRoot +"Resources\Images\triangle_CA.paa",true];
         };
-    case "NORMAL": { 
-        _color1 = [0,1,1,1];
-        _client setVariable ["INF_Icons_Texture",INF_Settings_MissionRoot +"Resources\Images\triangle_CA.paa",true];
+    case "NORMAL": {
+        
+            if (_team == "SURVIVOR") then {
+                _color1 = [0,1,1,1];
+                _client setVariable ["INF_Icons_Texture",INF_Settings_MissionRoot +"Resources\Images\Icons\shield1_CA.paa",true];
+            };          
+            if (_team == "ZOMBIE") then {
+                _color1 = [.2,1,.2,1];
+                _client setVariable ["INF_Icons_Texture",INF_Settings_MissionRoot +"Resources\Images\Icons\infection_CA.paa",true];
+            };
+        
         };
     case "KILL": {
         _modColor = true; 
@@ -30,13 +38,10 @@ switch (_type) do {
     default { };
 };
 
-if (_modColor) then {
-    terminate INF_Icons_FadeThread;
-};
-
 _client setVariable ["INF_Icons_Color",_color1,true];
 
 if (_modColor) then {
+    terminate INF_Icons_FadeThread;
     
     INF_Icons_FadeThread = [_client,_color1,_color2,serverTime] spawn {
         

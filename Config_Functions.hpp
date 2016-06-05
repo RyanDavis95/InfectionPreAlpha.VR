@@ -97,6 +97,7 @@ class Infection_Server {
         class Items {
             file="Server\Items";
             
+            class createGrave {};
             class dropItem {};
             class giveAmmo {};
             class giveEndurance {};
